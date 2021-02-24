@@ -1,0 +1,123 @@
+{
+    "repeat" : true,
+    "waves" : 
+    [
+        {
+            "delay" : 0,
+            "enemy_spawn_delay" : 0.5,
+            "enemies" :
+            [
+                {
+                    "name" : "void1",
+                    "generators" : [
+                        {"delay" : 0.75, "s" : "ring24burst", "pt" : "proj_circ3small"}, 
+                        {"delay" : 0, "s" : "ring12burst", "pt" : "proj_circ3small"}, 
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "l2",
+                    "exit_time" : -1,
+                },
+
+                {
+                    "name" : "void1",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning16", "pt" : "proj_circ2"}, 
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "r2",
+                    "exit_time" : 3,
+                },
+            ],
+        },
+
+        {
+            "delay" : 2,
+            "enemy_spawn_delay" : 1,
+            "enemies" :
+            [
+                {
+                    "name" : "void2",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning6", "pt" : "proj2.1"},
+                        {"delay" : 0, "s" : "spinning6Rev", "pt" : "proj2.1"}
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "l2",
+                    "exit_time" : -1,
+                },
+
+                {
+                    "name" : "void2",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning6", "pt" : "proj_circ2"},
+                        {"delay" : 0, "s" : "spinning6Rev", "pt" : "proj_circ1small"}
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "r2",
+                    "exit_time" : -1,
+                },
+
+            ],
+        },
+
+        {
+            "delay" : 2,
+            "enemy_spawn_delay" : 1,
+            "enemies" :
+            [
+                {
+                    "name" : "void3",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning6", "pt" : "proj2.1"},
+                        {"delay" : 0, "s" : "spinning6Rev", "pt" : "proj2.1"}
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "l2",
+                    "exit_time" : -1,
+                },
+
+                {
+                    "name" : "void3",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning6", "pt" : "proj2.1"},
+                        {"delay" : 0, "s" : "spinning6Rev", "pt" : "proj2.1"}
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "center",
+                    "exit_time" : -1,
+                },
+
+                {
+                    "name" : "void3",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning6", "pt" : "proj_circ2"},
+                        {"delay" : 0, "s" : "spinning6Rev", "pt" : "proj_circ1small"}
+                    ],
+                    "pos_v_override" : "v1",
+                    "pos_h_override" : "r2",
+                    "exit_time" : -1,
+                },
+
+            ],
+        },
+
+        {
+            "delay" : 5,
+            "enemy_spawn_delay" : 5,
+            "enemies" :
+            [
+                {
+                    "name" : "void4",
+                    "generators" : [
+                        {"delay" : 0, "s" : "spinning6", "pt" : "proj2.1"},
+                        {"delay" : 0, "s" : "spinning6Rev", "pt" : "proj2.1"}
+                    ],
+                    "pos_v_override" : "v4",
+                    "pos_h_override" : "center",
+                    "exit_time" : -1,
+                },
+
+            ],
+        },
+    ]
+}
