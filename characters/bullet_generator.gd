@@ -13,6 +13,15 @@ var modul = false
 
 var active_projectiles = []
 
+# Variables to be used in bullet spawning
+onready var origin := get_node("Center") as Position2D
+onready var shared_area := get_node("SharedArea") as Area2D
+
+# The array of live bullets in this generator
+var bullets : Array = []
+
+export (Image) var bullet_image
+
 """
 Variables: {
 	proj_type
@@ -93,7 +102,7 @@ func _ready():
 
 
 # Sets the patterns parameters
-func set_params(params, proj_type, start_delay):
+func set_params(params, _proj_type, _start_delay):
 	self.proj_type = proj_type
 	self.start_delay = start_delay
 	$StartTimer.wait_time = start_delay
@@ -144,7 +153,7 @@ func set_fire_rate(rate, modifier):
 	$FireRate.wait_time = 1/float(fire_rate * modifier)
 
 
-func set_spin_speed(speed, modifier):
+func set_spin_speed(speed, _modifier):
 	base_spin_speed = speed
 	spin_speed = speed
 
@@ -191,21 +200,100 @@ func change_current_spin_speed():
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 		$SpinSpeed.start()
 
+
+func update_diff(overall_diff):
+	"""
+	Currently moddable attributes are:
+		fire rate
+		bullet speed
+		bullets per array
+	"""
+	
+	if overall_diff > 1:
+		mod_bullet_speed = pow(overall_diff, 0.0503) - 1
+		if overall_diff < 200:
+			mod_bullet_speed = mod_bullet_speed / pow(200/overall_diff, 0.7)
+
+		mod_spin_speed = 1
+		set_spin_speed(base_spin_speed, mod_spin_speed)
+		
+		mod_fire_rate = (log(overall_diff) / log(10)) / 2
+		if mod_fire_rate <= 1:
+			mod_fire_rate = 1
+		set_fire_rate(fire_rate, mod_fire_rate)
+	
+	if overall_diff < 300:
+		mod_bullets_per_array = 0
+	else:
+		mod_bullets_per_array = 1
+
+
+# Register a new bullet in the array
+func spawn_bullet(i_movement: Vector2, speed: float) -> void:
+
+	# Create the bullet instance
+	var bullet : Bullet = Bullet.new()
+	bullet.movement_vector = i_movement
+	bullet.speed = speed
+	bullet.current_position = origin.position
+	
+	# Configure its collision
+	_create_bullet_collision(bullet)
+	
+	# Register to the array
+	bullets.append(bullet)
+
+
+################################################################################
+
+
+func _on_FireRate_timeout():
+	can_shoot = true
+
+
+func _on_LifeTimer_timeout():
+	die()
+
+
+func die():
+	queue_free()
+
+	
+func _on_StartTimer_timeout():
+	print("SOU UM GENERATOR, VOU COMEÇAR, COM LICENÇA " + proj_type)
+	start()
+
+
+func _create_bullet_collision(bullet: Bullet) -> void:
+	# Step 1
+	var used_transform := Transform2D(0, position)
+	used_transform.origin = bullet.current_position
+		
+	# Step 2
+	var _circle_shape = Physics2DServer.circle_shape_create()
+	Physics2DServer.shape_set_data(_circle_shape, 8)
+	# Add the shape to the shared area
+	Physics2DServer.area_add_shape(shared_area.get_rid(), _circle_shape, used_transform)
+
+	# Step 3
+	bullet.shape_id = _circle_shape
+
+
+func _draw() -> void:
+	var offset = bullet_image.get_size() / 2.0
+	for i in range(0, bullets.size()):
+		var bullet = bullets[i]
+		draw_texture(
+			bullet_image,
+			bullet.current_position - offset
+		)
+
+
 func _process(delta):
-#	print(get_name(), ': ', spin_speed, ' ', base_spin_speed)
-#	print(get_name(), ': ', base_spin_speed,': ', current_rotation, ' -> ', fmod(current_rotation + spin_speed*delta, 360))
-#	print(get_name(), ': ', spin_speed)
 	current_rotation = fmod(current_rotation + (spin_speed * mod_spin_speed)*delta, 360)
 	if spin_variation != 0:
 		change_current_spin_speed()
-#	print(spin_speed)
-	
-#	if DEBUG:
-#		print(get_name(), ': ', $FireRate.wait_time, ' ')
-#	if current_rotation > 360 or current_rotation :
-#		current_rotation -= 360
 	if shooting and can_shoot:
-#		print(get_name(), ': ', spin_speed, ' ', base_spin_speed)
 		can_shoot = false
 		$FireRate.start()
 		
@@ -244,51 +332,40 @@ func _process(delta):
 				proj_instance.generator = self
 				proj_instance.speed = bullet_speed + mod_bullet_speed
 				proj_instance.set_life(bullet_life)
-#				proj_instance.get_node("Sprite").set_self_modulate(bullet_color)
+				# proj_instance.get_node("Sprite").set_self_modulate(bullet_color)
 				stage.add_child_below_node(character, proj_instance)
 
 			start_angle += total_array_spread
 
 
-func update_diff(overall_diff):
-	"""
-	Currently moddable attributes are:
-		fire rate
-		bullet speed
-		bullets per array
-	"""
-	
-	if overall_diff > 1:
-		mod_bullet_speed = pow(overall_diff, 0.0503) - 1
-		if overall_diff < 200:
-			mod_bullet_speed = mod_bullet_speed / pow(200/overall_diff, 0.7)
+func _physics_process(delta) -> void:
+	var used_transform = Transform2D()
+	# var bullets_queued_for_destruction = []
 
-		mod_spin_speed = 1
-		set_spin_speed(base_spin_speed, mod_spin_speed)
+	for i in range(0, bullets.size()):
 		
-		mod_fire_rate = (log(overall_diff) / log(10)) / 2
-		if mod_fire_rate <= 1:
-			mod_fire_rate = 1
-		set_fire_rate(fire_rate, mod_fire_rate)
-	
-	if overall_diff < 300:
-		mod_bullets_per_array = 0
-	else:
-		mod_bullets_per_array = 1
+		# Calculate the new position
+		var bullet = bullets[i] as Bullet
+		var movement : Vector2 = (
+			bullet.movement_vector.normalized() * 
+			bullet.speed * 
+			delta
+		)
+		
+		# Move the Bullet
+		bullet.current_position += movement
+		used_transform.origin = bullet.current_position
+		Physics2DServer.area_set_shape_transform(
+			shared_area.get_rid(), i, used_transform
+		)
 
-
-func _on_FireRate_timeout():
-	can_shoot = true
-
-
-func _on_LifeTimer_timeout():
-	die()
-
-
-func die():
-	queue_free()
-
-	
-func _on_StartTimer_timeout():
-	print("SOU UM GENERATOR, VOU COMEÇAR, COM LICENÇA " + proj_type)
-	start()
+		# Delete bullet
+		var bullet_collided = false
+		if bullet_collided:
+			Physics2DServer.free_rid(bullet.texture)
+			bullets.erase(bullet)
+		
+		# Add the delta to the bullet's lifetime
+		bullet.lifetime += delta
+	# Redraw everything
+	update()
