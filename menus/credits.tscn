@@ -7,11 +7,11 @@
 size = 30
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 15
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 font_data = ExtResource( 6 )
 
@@ -70,13 +70,16 @@ margin_left = 62.0
 margin_top = 46.0
 margin_right = 403.0
 margin_bottom = 221.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Developed by Henrique Cerquinho for the Course Conclusion Thesis
 \"Dynamic Balancing of Video Game Difficulty\"
 available on
 https://www.linux.ime.usp.br/~henriquecerq/mac0499/
 
-"
+Github repostory available at
+https://github.com/rockrick1/galaxystride
+
+Thank you for playing!"
 align = 1
 valign = 1
 __meta__ = {
@@ -88,7 +91,7 @@ margin_left = 425.0
 margin_top = 6.0
 margin_right = 461.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "CLOSE"
 __meta__ = {
 "_edit_use_anchors_": false
