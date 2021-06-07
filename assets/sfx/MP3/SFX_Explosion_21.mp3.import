@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SFX_Explosion_21.mp3-3466eca25ea315dba25295ad40eff62c.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/MP3/SFX_Explosion_21.mp3"
+dest_files=[ "res://.import/SFX_Explosion_21.mp3-3466eca25ea315dba25295ad40eff62c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
