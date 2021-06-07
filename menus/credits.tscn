@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menus/credits.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/alterebro-pixel-font.ttf" type="DynamicFontData" id=6]
@@ -8,10 +8,6 @@ size = 30
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 15
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 18
 font_data = ExtResource( 6 )
 
@@ -66,11 +62,11 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="Label" parent="ColorRect"]
-margin_left = 62.0
+margin_left = 33.0
 margin_top = 46.0
-margin_right = 403.0
-margin_bottom = 221.0
-custom_fonts/font = SubResource( 2 )
+margin_right = 477.0
+margin_bottom = 242.0
+rect_scale = Vector2( 0.9, 0.9 )
 text = "Developed by Henrique Cerquinho for the Course Conclusion Thesis
 \"Dynamic Balancing of Video Game Difficulty\"
 available on
@@ -91,9 +87,10 @@ margin_left = 425.0
 margin_top = 6.0
 margin_right = 461.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "CLOSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="ColorRect/Close" to="." method="_on_Close_pressed"]

@@ -279,6 +279,7 @@ margin_right = 1920.0
 margin_bottom = 1081.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -292,6 +293,7 @@ margin_right = 512.0
 margin_bottom = 300.0
 color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -299,6 +301,7 @@ __meta__ = {
 margin_right = 512.0
 margin_bottom = 300.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -452,6 +455,7 @@ autoplay = true
 
 [node name="Fade" type="AnimationPlayer" parent="Music"]
 anims/fade_out = SubResource( 17 )
+
 [connection signal="mouse_entered" from="MenuItems/Buttons/NewGame" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="MenuItems/Buttons/NewGame" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="MenuItems/Buttons/NewGame" to="." method="_on_newgame_pressed"]
