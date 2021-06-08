@@ -4,19 +4,22 @@
 [ext_resource path="res://gui/generator_controller.gd" type="Script" id=2]
 
 [node name="Controller" type="VBoxContainer"]
-margin_right = 500.0
-margin_bottom = 19.0
+margin_right = 731.0
+margin_bottom = 309.0
+rect_scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 278.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
 
 [node name="Generator" type="HBoxContainer" parent="Buttons"]
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 15.0
 
 [node name="GeneratorDown" type="Button" parent="Buttons/Generator"]
@@ -57,7 +60,7 @@ text = "-1"
 
 [node name="Life" type="HBoxContainer" parent="Buttons"]
 margin_top = 19.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 34.0
 
 [node name="LifeDown" type="Button" parent="Buttons/Life"]
@@ -91,7 +94,7 @@ text = "0"
 
 [node name="BulletsPerArray" type="HBoxContainer" parent="Buttons"]
 margin_top = 38.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 53.0
 
 [node name="BulletsPerArrayDown" type="Button" parent="Buttons/BulletsPerArray"]
@@ -125,7 +128,7 @@ text = "0"
 
 [node name="IndividualArraySpread" type="HBoxContainer" parent="Buttons"]
 margin_top = 57.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 72.0
 
 [node name="IndividualArraySpreadDown" type="Button" parent="Buttons/IndividualArraySpread"]
@@ -159,7 +162,7 @@ text = "0"
 
 [node name="TotalBulletArrays" type="HBoxContainer" parent="Buttons"]
 margin_top = 76.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 91.0
 
 [node name="TotalBulletArraysDown" type="Button" parent="Buttons/TotalBulletArrays"]
@@ -193,7 +196,7 @@ text = "0"
 
 [node name="TotalArraySpread" type="HBoxContainer" parent="Buttons"]
 margin_top = 95.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 110.0
 
 [node name="TotalArraySpreadDown" type="Button" parent="Buttons/TotalArraySpread"]
@@ -227,7 +230,7 @@ text = "0"
 
 [node name="BaseSpinSpeed" type="HBoxContainer" parent="Buttons"]
 margin_top = 114.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 129.0
 
 [node name="BaseSpinSpeedDown" type="Button" parent="Buttons/BaseSpinSpeed"]
@@ -261,7 +264,7 @@ text = "0"
 
 [node name="SpinSpeedPeriod" type="HBoxContainer" parent="Buttons"]
 margin_top = 133.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 148.0
 
 [node name="SpinSpeedPeriodDown" type="Button" parent="Buttons/SpinSpeedPeriod"]
@@ -295,7 +298,7 @@ text = "0"
 
 [node name="SpinVariation" type="HBoxContainer" parent="Buttons"]
 margin_top = 152.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 167.0
 
 [node name="SpinVariationDown" type="Button" parent="Buttons/SpinVariation"]
@@ -329,7 +332,7 @@ text = "0"
 
 [node name="AimAtCharacter" type="HBoxContainer" parent="Buttons"]
 margin_top = 171.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 195.0
 
 [node name="AimAtCharacter" type="CheckBox" parent="Buttons/AimAtCharacter"]
@@ -346,7 +349,7 @@ text = "AimAtCharacter: "
 
 [node name="FireRate" type="HBoxContainer" parent="Buttons"]
 margin_top = 199.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 221.0
 
 [node name="FireRateDown" type="Button" parent="Buttons/FireRate"]
@@ -390,7 +393,7 @@ text = "0"
 
 [node name="CyclesPerInterval" type="HBoxContainer" parent="Buttons"]
 margin_top = 225.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 240.0
 
 [node name="CyclesPerIntervalDown" type="Button" parent="Buttons/CyclesPerInterval"]
@@ -424,7 +427,7 @@ text = "0"
 
 [node name="BulletSpeed" type="HBoxContainer" parent="Buttons"]
 margin_top = 244.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 259.0
 
 [node name="BulletSpeedDown" type="Button" parent="Buttons/BulletSpeed"]
@@ -458,7 +461,7 @@ text = "0"
 
 [node name="BulletLife" type="HBoxContainer" parent="Buttons"]
 margin_top = 263.0
-margin_right = 500.0
+margin_right = 99.0
 margin_bottom = 278.0
 
 [node name="BulletLifeDown" type="Button" parent="Buttons/BulletLife"]
@@ -491,9 +494,9 @@ custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="ExtraButtons" type="HBoxContainer" parent="."]
-margin_top = 282.0
-margin_right = 500.0
-margin_bottom = 297.0
+margin_top = 294.0
+margin_right = 731.0
+margin_bottom = 309.0
 
 [node name="ZeroDiff" type="Button" parent="ExtraButtons"]
 margin_right = 33.0
@@ -507,6 +510,7 @@ margin_right = 58.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 1 )
 text = "Quit"
+
 [connection signal="pressed" from="Buttons/Generator/GeneratorDown" to="." method="_on_GeneratorDown_pressed"]
 [connection signal="pressed" from="Buttons/Generator/GeneratorUp" to="." method="_on_GeneratorUp_pressed"]
 [connection signal="pressed" from="Buttons/Generator/GeneratorAdd" to="." method="_on_GeneratorAdd_pressed"]

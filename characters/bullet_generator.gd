@@ -14,7 +14,7 @@ var modul = false
 var active_projectiles = []
 
 # Variables to be used in bullet spawning
-onready var origin := get_node("Center") as Position2D
+onready var origin := get_node("Origin") as Position2D
 onready var shared_area := get_node("SharedArea") as Area2D
 
 # The array of live bullets in this generator
@@ -235,13 +235,17 @@ func spawn_bullet(i_movement: Vector2, speed: float) -> void:
 	var bullet : Bullet = Bullet.new()
 	bullet.movement_vector = i_movement
 	bullet.speed = speed
-	bullet.current_position = self.position
+	bullet.current_position = origin.position
 	
 	# Configure its collision
 	_create_bullet_collision(bullet)
 	
 	# Register to the array
 	bullets.append(bullet)
+
+
+func die():
+	queue_free()
 
 
 ################################################################################
@@ -255,10 +259,6 @@ func _on_LifeTimer_timeout():
 	die()
 
 
-func die():
-	queue_free()
-
-	
 func _on_StartTimer_timeout():
 	print("SOU UM GENERATOR, VOU COMEÇAR, COM LICENÇA " + proj_type)
 	start()
@@ -283,12 +283,13 @@ func _draw() -> void:
 	var offset = bullet_image.get_size() / 2.0
 	for i in range(0, bullets.size()):
 		var bullet = bullets[i]
-		draw_set_transform(Vector2(0,0), get_angle_to(bullet.movement_vector), Vector2(1, 1))
+		# var angle = bullet.movement_vector.angle()
+		# print(i,'=', rad2deg(angle))
+		draw_set_transform(Vector2(0,0), 0, Vector2(1, 1))
 		draw_texture(
 			bullet_image,
 			bullet.current_position - offset
 		)
-		draw_set_transform(Vector2(0,0), 0, Vector2(1, 1))
 
 
 func _process(delta):
@@ -326,6 +327,7 @@ func _process(delta):
 
 				if not aim_at_character:
 					dir = dir.rotated(deg2rad(current_rotation)).normalized()
+
 				spawn_bullet(dir, bullet_speed + mod_bullet_speed)
 				# proj_instance.set_vars(shooter, dir, true)
 				# proj_instance.position = shooter.get_global_position()

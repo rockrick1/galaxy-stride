@@ -5,7 +5,7 @@
 	"individual_array_spread" : 360,
 	"total_bullet_arrays" : 1,
 	"total_array_spread" : 90,
-	"base_spin_speed" : 5,
+	"base_spin_speed" : 0,
 	"spin_speed_period" : 1,
 	"spin_variation" : 0,
 	"aim_at_character" : false,

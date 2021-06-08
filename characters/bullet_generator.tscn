@@ -7,6 +7,8 @@
 script = ExtResource( 1 )
 bullet_image = ExtResource( 2 )
 
+[node name="Origin" type="Position2D" parent="."]
+
 [node name="SpinSpeed" type="Tween" parent="."]
 
 [node name="FireRate" type="Timer" parent="."]
