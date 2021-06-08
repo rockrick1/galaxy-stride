@@ -235,7 +235,7 @@ func spawn_bullet(i_movement: Vector2, speed: float) -> void:
 	var bullet : Bullet = Bullet.new()
 	bullet.movement_vector = i_movement
 	bullet.speed = speed
-	bullet.current_position = origin.position
+	bullet.current_position = self.position
 	
 	# Configure its collision
 	_create_bullet_collision(bullet)
@@ -276,17 +276,19 @@ func _create_bullet_collision(bullet: Bullet) -> void:
 	Physics2DServer.area_add_shape(shared_area.get_rid(), _circle_shape, used_transform)
 
 	# Step 3
-	bullet.shape_id = _circle_shape
+	bullet.texture = _circle_shape
 
 
 func _draw() -> void:
 	var offset = bullet_image.get_size() / 2.0
 	for i in range(0, bullets.size()):
 		var bullet = bullets[i]
+		draw_set_transform(Vector2(0,0), get_angle_to(bullet.movement_vector), Vector2(1, 1))
 		draw_texture(
 			bullet_image,
 			bullet.current_position - offset
 		)
+		draw_set_transform(Vector2(0,0), 0, Vector2(1, 1))
 
 
 func _process(delta):
@@ -297,7 +299,6 @@ func _process(delta):
 		can_shoot = false
 		$FireRate.start()
 		
-		var proj_instance
 		var start_angle = 0
 		var angle_between_bullets
 		var angle
@@ -323,17 +324,16 @@ func _process(delta):
 						offset = -individual_array_spread/2 + (angle_between_bullets * bullet_n) 
 					dir = dir.rotated(deg2rad(offset))
 
-				proj_instance = proj.instance()
-				
 				if not aim_at_character:
 					dir = dir.rotated(deg2rad(current_rotation)).normalized()
-				proj_instance.set_vars(shooter, dir, true)
-				proj_instance.position = shooter.get_global_position()
-				proj_instance.generator = self
-				proj_instance.speed = bullet_speed + mod_bullet_speed
-				proj_instance.set_life(bullet_life)
+				spawn_bullet(dir, bullet_speed + mod_bullet_speed)
+				# proj_instance.set_vars(shooter, dir, true)
+				# proj_instance.position = shooter.get_global_position()
+				# proj_instance.generator = self
+				# proj_instance.speed = bullet_speed + mod_bullet_speed
+				# proj_instance.set_life(bullet_life)
 				# proj_instance.get_node("Sprite").set_self_modulate(bullet_color)
-				stage.add_child_below_node(character, proj_instance)
+				# stage.add_child_below_node(character, proj_instance)
 
 			start_angle += total_array_spread
 
@@ -348,8 +348,7 @@ func _physics_process(delta) -> void:
 		var bullet = bullets[i] as Bullet
 		var movement : Vector2 = (
 			bullet.movement_vector.normalized() * 
-			bullet.speed * 
-			delta
+			bullet.speed
 		)
 		
 		# Move the Bullet
