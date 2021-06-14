@@ -8,6 +8,7 @@ var can_shoot = true
 var shooter
 var character
 var stage
+var font
 
 var modul = false
 
@@ -99,6 +100,9 @@ func _ready():
 	set_process(false)
 	shooter = get_parent().get_parent()
 	print(shooter)
+	font = DynamicFont.new()
+	font.font_data = load("res://assets/fonts/alterebro-pixel-font.ttf")
+	font.size = 20
 
 
 # Sets the patterns parameters
@@ -260,7 +264,7 @@ func _on_LifeTimer_timeout():
 
 
 func _on_StartTimer_timeout():
-	print("SOU UM GENERATOR, VOU COMEÇAR, COM LICENÇA " + proj_type)
+	print("sou um generator, vou começar, com licença " + proj_type)
 	start()
 
 
@@ -283,13 +287,16 @@ func _draw() -> void:
 	var offset = bullet_image.get_size() / 2.0
 	for i in range(0, bullets.size()):
 		var bullet = bullets[i]
-		# var angle = bullet.movement_vector.angle()
-		# print(i,'=', rad2deg(angle))
-		draw_set_transform(Vector2(0,0), 0, Vector2(1, 1))
+		var angle = bullet.movement_vector.angle()
+		draw_set_transform(bullet.current_position, angle, Vector2(1, 1))
 		draw_texture(
 			bullet_image,
-			bullet.current_position - offset
+			Vector2(0,0)
 		)
+		
+		# draw_set_transform(Vector2(0,0), angle, Vector2(1, 1))
+		draw_set_transform(bullet.current_position, angle, Vector2(1, 1))
+		draw_string(font, Vector2(0,0), str(i) + '='+ str(int(round(rad2deg(angle)))), Color(1.0, 1.0, 0.0, 1.0));
 
 
 func _process(delta):
@@ -329,6 +336,7 @@ func _process(delta):
 					dir = dir.rotated(deg2rad(current_rotation)).normalized()
 
 				spawn_bullet(dir, bullet_speed + mod_bullet_speed)
+				print(bullet_n, ' - ', str(int(round(rad2deg(dir.angle())))))
 				# proj_instance.set_vars(shooter, dir, true)
 				# proj_instance.position = shooter.get_global_position()
 				# proj_instance.generator = self
