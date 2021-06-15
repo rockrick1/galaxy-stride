@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://projectiles/shaders/glow.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/glow_color = Color( 1, 1, 1, 1 )
+shader_param/bloomRadius = 0.01
+shader_param/bloomThreshold = 0.2
+shader_param/bloomIntensity = 0.01
