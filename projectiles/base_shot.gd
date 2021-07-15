@@ -1,15 +1,11 @@
 extends Node2D
 
-onready var env_settings = preload("res://projectiles/enemy/glow_env.tres")
-
-func _ready():
-	var env = WorldEnvironment.new()
-	env.set_environment(env_settings)
-	add_child(env)
+var mod_set = false
 
 func _process(_delta):
-	if $Sprite != null:
-		$Sprite.set_modulate(Color(1.1,1.1,1.1,1))
+	if $Sprite != null and not mod_set:
+		$Sprite.set_modulate(Color(1.3,1.3,1.3,1))
+		mod_set = true
 
 
 func set_vars(pos, shooter, dir):
