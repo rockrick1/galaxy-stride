@@ -46,7 +46,8 @@ func _ready():
 
 
 func _process(_delta):
-	blink_mat.set_shader_param("intensity", blink_intensity)
+	if blink_mat != null:
+		blink_mat.set_shader_param("intensity", blink_intensity)
 
 
 func start():
