@@ -3,11 +3,11 @@
 [ext_resource path="res://assets/sprites/M484BulletCollectionLarger.png" type="Texture" id=1]
 [ext_resource path="res://projectiles/base_projectile.gd" type="Script" id=2]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 529.142, 225.867, 25.4319, 23.4027 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -20,12 +20,12 @@ damage = 250
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1.54341, 1.12627 )
 scale = Vector2( 0.959831, 1.03003 )
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 27, 25 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -35,6 +35,7 @@ autostart = true
 [node name="CharSearchRefresh" type="Timer" parent="."]
 wait_time = 0.075
 autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
 [connection signal="timeout" from="CharSearchRefresh" to="." method="_on_CharSearchRefresh_timeout"]

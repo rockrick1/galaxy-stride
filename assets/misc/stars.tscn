@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/misc/stars.gd" type="Script" id=1]
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 130, 1, 1 )
 flag_disable_z = true
@@ -16,7 +16,7 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 0.2
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=2]
 emission_shape = 2
 emission_box_extents = Vector3( 130, 1, 1 )
 flag_disable_z = true
@@ -51,15 +51,7 @@ __meta__ = {
 }
 
 [node name="Fast" type="Particles2D" parent="."]
-position = Vector2( 256, 0 )
-amount = 20
-lifetime = 2.0
-process_material = SubResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Normal" type="Particles2D" parent="."]
+use_parent_material = true
 position = Vector2( 256, 0 )
 amount = 20
 lifetime = 2.0
@@ -68,7 +60,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Normal" type="Particles2D" parent="."]
+use_parent_material = true
+position = Vector2( 256, 0 )
+amount = 20
+lifetime = 2.0
+process_material = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Slow" type="Particles2D" parent="."]
+use_parent_material = true
 position = Vector2( 256, 0 )
 amount = 40
 lifetime = 2.0

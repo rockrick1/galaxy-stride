@@ -100,28 +100,28 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 32 )
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 32, 32 )
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 7 )
@@ -133,15 +133,15 @@ region = Rect2( 48, 0, 48, 32 )
 
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ) ],
-"loop": true,
-"name": "cruiser2",
-"speed": 20.0
-}, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "cruiser1",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "cruiser2",
+"speed": 20.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
@@ -376,15 +376,16 @@ DEATH_PENALTY = 1.5
 
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
+use_parent_material = true
 frames = SubResource( 17 )
 frame = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 visible = false
+use_parent_material = true
 scale = Vector2( 0.690292, 0.690292 )
 frames = SubResource( 26 )
 animation = "cruiser2"
-frame = 1
 playing = true
 
 [node name="Blink" type="AnimationPlayer" parent="Sprite"]
@@ -395,6 +396,7 @@ anims/Invincible = SubResource( 28 )
 
 [node name="ShotEffect" type="Sprite" parent="."]
 visible = false
+use_parent_material = true
 position = Vector2( 0, -18 )
 texture = ExtResource( 3 )
 
@@ -402,6 +404,7 @@ texture = ExtResource( 3 )
 anims/Shooting = SubResource( 29 )
 
 [node name="BombEffect" type="Sprite" parent="."]
+use_parent_material = true
 scale = Vector2( 0.001, 0.001 )
 texture = ExtResource( 5 )
 
@@ -409,10 +412,12 @@ texture = ExtResource( 5 )
 anims/Bomb = SubResource( 30 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+use_parent_material = true
 shape = SubResource( 31 )
 
 [node name="Sprite" type="Sprite" parent="Hitbox"]
 modulate = Color( 1, 1, 1, 0 )
+use_parent_material = true
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
@@ -421,9 +426,11 @@ anims/HideHitbox = SubResource( 32 )
 anims/ShowHitbox = SubResource( 33 )
 
 [node name="Center" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="CenterDraw" type="Line2D" parent="Center"]
 visible = false
+use_parent_material = true
 position = Vector2( 0, -1 )
 z_index = 10
 points = PoolVector2Array( 0, 0, 0, 2 )
@@ -431,6 +438,7 @@ width = 2.0
 default_color = Color( 0.92549, 0.0666667, 0.0666667, 1 )
 
 [node name="ShotOrigin" type="Node2D" parent="."]
+use_parent_material = true
 position = Vector2( 0, -24 )
 
 [node name="CenterDraw" type="Line2D" parent="ShotOrigin"]
@@ -463,6 +471,7 @@ volume_db = -15.0
 [node name="BombSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -15.0
+
 [connection signal="timeout" from="FireRate" to="." method="_on_FireRate_timeout"]
 [connection signal="timeout" from="DiffUpdate" to="." method="_on_DiffUpdate_timeout"]
 [connection signal="timeout" from="Invincibility" to="." method="_on_Invincibility_timeout"]
