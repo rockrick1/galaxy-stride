@@ -10,6 +10,7 @@ region = Rect2( 555.095, 225.867, 25.7811, 23.4027 )
 [sub_resource type="CircleShape2D" id=2]
 
 [node name="Projectile" type="Area2D"]
+modulate = Color( 1.075, 1.075, 1.075, 1 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 8
 collision_mask = 17
@@ -18,6 +19,7 @@ speed = 10.0
 damage = 250
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1.075, 1.075, 1.075, 1 )
 position = Vector2( 1.04284, 1.2097 )
 scale = Vector2( 0.922752, 0.969962 )
 texture = SubResource( 3 )

@@ -8,6 +8,8 @@ export (String) var TYPE
 export (float) var DISTANCE
 export (float) var BOMB_DMG = 20
 
+export (float) var blink_intensity = 0
+
 export (float) var amount_to_move
 export (float) var where_to_move
 export (float) var move_period
@@ -26,6 +28,7 @@ var muzzlepos
 var pos_h_override
 var spawned_drops = 0
 var exit_time = -1
+var blink_mat : Material
 
 var invincible = false
 var is_dead = false
@@ -38,7 +41,12 @@ func _ready():
 	character.connect("bomb", self, "on_bomb")
 	if has_node("ColorRect"):
 		$ColorRect.set_frame_color(Color(randf(), randf(), randf()))
+	blink_mat = $AnimatedSprite.get_material()
 	start()
+
+
+func _process(_delta):
+	blink_mat.set_shader_param("intensity", blink_intensity)
 
 
 func start():

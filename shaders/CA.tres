@@ -24,6 +24,6 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/apply = true
+shader_param/apply = false
 shader_param/amount = 5.0
 shader_param/offset_texture = ExtResource( 1 )

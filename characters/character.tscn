@@ -116,20 +116,20 @@ atlas = ExtResource( 1 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 6 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 48, 32 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 7 )
 region = Rect2( 48, 0, 48, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=26]
 animations = [ {
@@ -140,12 +140,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
-"name": "cruiser2",
+"name": "biomech1",
 "speed": 20.0
 }, {
 "frames": [ SubResource( 24 ), SubResource( 25 ) ],
 "loop": true,
-"name": "biomech1",
+"name": "cruiser2",
 "speed": 20.0
 } ]
 
@@ -242,6 +242,7 @@ tracks/2/keys = {
 radius = 1.41729
 
 [sub_resource type="Animation" id=32]
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
@@ -254,8 +255,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.41 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=33]
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
 tracks/0/interp = 1
@@ -267,6 +281,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.411765 ) ]
 }
 
 [sub_resource type="Animation" id=34]
@@ -381,7 +407,6 @@ frames = SubResource( 17 )
 frame = 1
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-visible = false
 use_parent_material = true
 scale = Vector2( 0.690292, 0.690292 )
 frames = SubResource( 26 )
@@ -404,8 +429,10 @@ texture = ExtResource( 3 )
 anims/Shooting = SubResource( 29 )
 
 [node name="BombEffect" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 use_parent_material = true
-scale = Vector2( 0.001, 0.001 )
+scale = Vector2( 3.5, 3.5 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BombEffect"]

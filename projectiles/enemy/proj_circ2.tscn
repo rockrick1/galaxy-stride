@@ -10,6 +10,7 @@ region = Rect2( 529.142, 225.867, 25.4319, 23.4027 )
 [sub_resource type="CircleShape2D" id=2]
 
 [node name="Projectile" type="Area2D"]
+modulate = Color( 1.075, 1.075, 1.075, 1 )
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 8
 collision_mask = 17
@@ -18,7 +19,8 @@ speed = 10.0
 damage = 250
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1.54341, 1.12627 )
+modulate = Color( 1.075, 1.075, 1.075, 1 )
+position = Vector2( 1.0754341, 1.0752627 )
 scale = Vector2( 0.959831, 1.03003 )
 texture = SubResource( 1 )
 region_enabled = true
