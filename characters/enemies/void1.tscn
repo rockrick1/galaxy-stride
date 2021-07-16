@@ -1,10 +1,28 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/void_sprite_frames.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://shaders/damage_blink.tres" type="Material" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+uniform float intensity : hint_range(0,1) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	float r = (color.r + intensity) * color.a;
+	float g = (color.g + intensity) * color.a;
+	float b = (color.b + intensity) * color.a;
+	color = vec4(r, g, b, color.a);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/intensity = 0.0
+
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10.6752, 20.8909 )
 
 [sub_resource type="Animation" id=2]
@@ -54,14 +72,14 @@ move_period = 2.0
 modulate = Color( 1, 84.89, 1, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = ExtResource( 3 )
+material = SubResource( 4 )
 frames = ExtResource( 2 )
 animation = "void1"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/take damage" = SubResource( 2 )
