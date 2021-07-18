@@ -129,6 +129,7 @@ func _process(delta):
 		if can_shoot:
 			can_shoot = false
 			$FireRate.start()
+			$ShotSound.play()
 			var shot_instance = shots[shot_lv - 1].instance()
 			shot_instance.set_vars($ShotOrigin.get_global_position(), self, Vector2(0,-1))
 			stage.add_child_below_node(self, shot_instance)
