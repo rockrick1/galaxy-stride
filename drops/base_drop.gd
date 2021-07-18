@@ -22,10 +22,10 @@ func _ready():
 	print("oieoieoeieoie ", spawn_offset)
 	tweenX.interpolate_property(self, "position:x",
 		position.x, position.x + spawn_offset.x, .15,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tweenX.interpolate_property(self, "position:y",
 		position.y, position.y + spawn_offset.y, .15,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tweenX.start()
 	tweenY.start()
 
