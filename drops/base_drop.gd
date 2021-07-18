@@ -21,10 +21,10 @@ func _ready():
 	var tweenY = $SpawnMoveY
 	print("oieoieoeieoie ", spawn_offset)
 	tweenX.interpolate_property(self, "position:x",
-		position.x, position.x + spawn_offset.x, .15,
+		position.x, position.x + spawn_offset.x, .2,
 		Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tweenX.interpolate_property(self, "position:y",
-		position.y, position.y + spawn_offset.y, .15,
+		position.y, position.y + spawn_offset.y, .2,
 		Tween.TRANS_QUAD, Tween.EASE_OUT)
 	tweenX.start()
 	tweenY.start()
