@@ -185,7 +185,7 @@ func gain_drop():
 func graze():
 	if not invincible:
 		grazed_bullets += 1
-		$Sprite/Blink.play("Blink")
+#		$Sprite/Blink.play("Blink")
 
 
 func bomb():
@@ -296,7 +296,8 @@ func _on_Invincibility_timeout():
 	invincible = false
 	$Hitbox.disabled = false
 	$Sprite/Invincible.stop()
-	$Sprite.self_modulate = Color(1,1,1,1)
+	$Sprite.get_material().set_shader_param("intensity", 0.0)
+#	$Sprite.self_modulate = Color(1,1,1,1)
 
 
 func goto_main_menu():
