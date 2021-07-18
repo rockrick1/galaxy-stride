@@ -3,8 +3,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$HBoxContainer/VBoxContainer/Ship1/Frame.visible = false
-	$HBoxContainer/VBoxContainer/Ship2/Frame.visible = false
+	$HBoxContainer/VBoxContainer/Ship1/Frame.hide()
+	$HBoxContainer/VBoxContainer/Ship2/Frame.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
