@@ -93,13 +93,16 @@ func _process(delta):
 	if Input.is_action_pressed("ui_left"):
 		moving = true
 		dir.x -= 1
-		# data.info = "Left"
+		set_turning(1)
 #		action_recorder.write_data(data)
 	elif Input.is_action_pressed("ui_right"):
 		moving = true
 		dir.x += 1
+		set_turning(2)
 		# data.info = "Right"
 #		action_recorder.write_data(data)
+	else:
+		set_turning(0)
 	if Input.is_action_pressed("ui_down"):
 		moving = true
 		dir.y += 1
@@ -199,6 +202,20 @@ func bomb():
 	# Emit signal to kill enemy bullets
 	emit_signal("bomb")
 	stage.stats.update_bars(self)
+
+
+func set_turning(side : int):
+	var ship_name = MainNodes.get_ship()
+	match side:
+		0: # not turning
+			$Sprite.set_animation(ship_name)
+			pass
+		1: # left
+			$Sprite.set_animation(ship_name + "turn")
+			$Sprite.set_flip_h(false)
+		2: # right
+			$Sprite.set_animation(ship_name + "turn")
+			$Sprite.set_flip_h(true)
 
 
 func take_damage(dmg):

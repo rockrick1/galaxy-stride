@@ -204,6 +204,7 @@ func _process(delta):
 #		print(get_name(), ': ', $FireRate.wait_time, ' ')
 #	if current_rotation > 360 or current_rotation :
 #		current_rotation -= 360
+	var sound_played = false
 	if shooting and can_shoot:
 #		print(get_name(), ': ', spin_speed, ' ', base_spin_speed)
 		can_shoot = false
@@ -246,6 +247,10 @@ func _process(delta):
 				proj_instance.set_life(bullet_life)
 #				proj_instance.get_node("Sprite").set_self_modulate(bullet_color)
 				stage.add_child_below_node(character, proj_instance)
+				
+				if not sound_played:
+					$SpawnSound.play()
+					sound_played = true
 
 			start_angle += total_array_spread
 
