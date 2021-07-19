@@ -141,8 +141,8 @@ func die(spawn_drops):
 
 func spawn_explosion():
 	var ex = explosion.instance()
-	ex.position = self.position
-	stage.add_child(ex)
+	ex.global_position = self.global_position
+	stage.add_child_below_node(self, ex)
 
 
 func kill_generators():
