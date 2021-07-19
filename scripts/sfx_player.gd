@@ -9,6 +9,9 @@ func play(sfx_name : String):
 		"EnemyDeath":
 			var pitch = 0.75 + (randf() / 2)
 			$EnemyDeath.set_pitch_scale(pitch)
+		"CharPowerup":
+			var pitch = 0.75 + (randf() / 2)
+			$EnemyDeath.set_pitch_scale(pitch)
 	get_node(sfx_name).play()
 
 

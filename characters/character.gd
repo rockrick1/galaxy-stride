@@ -174,6 +174,7 @@ func gain_drop():
 		if POWER > POWER_MAX:
 			shot_lv = min(shot_lv + 1, len(shots))
 			POWER = 0
+			SfxPlayer.play("CharPowerup")
 	else:
 		POWER = POWER_MAX
 	if BOMB_CHARGE > BOMB_CHARGE_MAX:
