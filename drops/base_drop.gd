@@ -62,8 +62,3 @@ func _on_Drop_body_shape_entered(body_id, body, body_shape, area_shape):
 
 func _on_SpawnMoveX_tween_all_completed():
 	spawning = false
-	print("cabou")
-
-
-func _on_SpawnMoveX_tween_completed(object, key):
-	print(object,key)

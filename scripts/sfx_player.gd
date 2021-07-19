@@ -23,7 +23,18 @@ func stop_music():
 		if "Music" in node.name:
 			node.stop()
 
+
+func play_boss_music():
+	print("WHY DO I HEAR BOSS MUSIC")
+	$MusicStage/Animation.play("fade_to_boss")
+
+
 func play_music_anim(name, anim_name : String):
 	var node = get_node(name)
 	if node.has_node("Animation"):
 		node.get_node("Animation").play(anim_name)
+
+
+func _on_MusicBossIntro_finished():
+	$MusicBossIntro.stop()
+	$MusicBoss.play()

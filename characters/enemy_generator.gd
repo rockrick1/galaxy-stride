@@ -82,6 +82,8 @@ func start_next_wave():
 
 
 func spawn_next_enemy():
+	if current_wave.has("boss"):
+		SfxPlayer.play_boss_music()
 	if current_wave.has("enemies") and cur_enemy_n < len(current_wave.enemies) - 1:
 		cur_enemy_n += 1
 	else: # No more enemies to spawn

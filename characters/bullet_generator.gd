@@ -89,7 +89,7 @@ export (bool) var DEBUG
 func _ready():
 	set_process(false)
 	shooter = get_parent().get_parent()
-	print(shooter)
+	# print(shooter)
 
 
 # Sets the patterns parameters
@@ -151,9 +151,6 @@ func set_spin_speed(speed, modifier):
 
 # Starts the StartTimer if there is a time to wait, otherwise, starts shooting
 func start_on_timer():
-	print("VO COMEÇAR DEPOIS DESSE TEMPO AQUI")
-	print(start_delay)
-	print($StartTimer.wait_time)
 	if start_delay == 0:
 		start()
 	else:
