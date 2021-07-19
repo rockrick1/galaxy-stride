@@ -132,7 +132,7 @@ func _process(delta):
 		if can_shoot:
 			can_shoot = false
 			$FireRate.start()
-			$ShotSound.play()
+			SfxPlayer.play("CharShot")
 			var shot_instance = shots[shot_lv - 1].instance()
 			shot_instance.set_vars($ShotOrigin.get_global_position(), self, Vector2(0,-1))
 			stage.add_child_below_node(self, shot_instance)
@@ -182,9 +182,7 @@ func gain_drop():
 	if LIFE_CHARGE > LIFE_CHARGE_MAX:
 		LIVES += 1
 		LIFE_CHARGE = 0
-	var pitch = 0.95 + (randf() / 10)
-	$DropSound.set_pitch_scale(pitch)
-	$DropSound.play()
+	SfxPlayer.play("CharDrop")
 	stage.stats.update_bars(self)
 
 
@@ -198,7 +196,7 @@ func graze():
 func bomb():
 	BOMBS -= 1
 	$BombEffect/AnimationPlayer.play("Bomb")
-	$BombSound.play()
+	SfxPlayer.play("CharBomb")
 	# Emit signal to kill enemy bullets
 	emit_signal("bomb")
 	stage.stats.update_bars(self)
@@ -206,6 +204,8 @@ func bomb():
 
 func set_turning(side : int):
 	var ship_name = MainNodes.get_ship()
+	if not ship_name:
+		return
 	match side:
 		0: # not turning
 			$Sprite.set_animation(ship_name)
@@ -236,7 +236,7 @@ func die():
 	$AnimationPlayer.play("death")
 	$Sprite/Invincible.play("Invincible")
 	$Invincibility.start()
-	$DeathSound.play()
+	SfxPlayer.play("CharDeath")
 	
 	$ShotEffect/AnimationPlayer.stop()
 	$ShotEffect.set_visible(false)

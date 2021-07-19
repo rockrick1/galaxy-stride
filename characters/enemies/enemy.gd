@@ -133,6 +133,7 @@ func die(spawn_drops):
 	if not is_dead and spawn_drops:
 		is_dead = true
 		spawn_drops()
+	SfxPlayer.play("EnemyDeath")
 	queue_free()
 
 

@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 
 MainNodes="*res://scripts/main_nodes_getter.gd"
 DBManager="*res://scripts/db_manager.gd"
+SfxPlayer="*res://scripts/sfx_player.tscn"
 
 [debug]
 

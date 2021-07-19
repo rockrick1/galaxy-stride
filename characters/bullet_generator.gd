@@ -249,7 +249,7 @@ func _process(delta):
 				stage.add_child_below_node(character, proj_instance)
 				
 				if not sound_played:
-					$SpawnSound.play()
+					SfxPlayer.play("EnemyShot")
 					sound_played = true
 
 			start_angle += total_array_spread
