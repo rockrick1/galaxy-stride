@@ -3,6 +3,7 @@ extends "base_stage.gd"
 
 func _ready():
 	MainNodes.set_stats($CanvasLayer/Stats)
+	SfxPlayer.play_music("MusicStage")
 
 
 func _on_AutoCollectZone_body_shape_entered(body_id, body, body_shape, area_shape):

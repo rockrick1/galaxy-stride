@@ -20,6 +20,7 @@ const credits_screen = preload("res://menus/credits.tscn")
 
 func _ready():
 	set_process(true)
+	SfxPlayer.play_music("MusicMenu")
 
 
 func check_null():
@@ -165,6 +166,7 @@ func _on_quit_pressed():
 
 func _on_demo_pressed():
 	get_tree().change_scene("res://stages/generator_demo.tscn")
+	SfxPlayer.stop_music()
 
 
 func _on_demo_mouse_entered():
@@ -181,7 +183,7 @@ func _on_demo_mouse_exited():
 
 func _on_newgame_pressed():
 	if not $fade.is_playing():
-		$Music/Fade.play("fade_out")
+		SfxPlayer.play_music_anim("MusicMenu", "fade_out")
 		$fade.play("fade_out")
 	set_process(false)
 
