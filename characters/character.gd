@@ -179,6 +179,9 @@ func gain_drop():
 	if LIFE_CHARGE > LIFE_CHARGE_MAX:
 		LIVES += 1
 		LIFE_CHARGE = 0
+	var pitch = 0.95 + (randf() / 10)
+	$DropSound.set_pitch_scale(pitch)
+	$DropSound.play()
 	stage.stats.update_bars(self)
 
 
