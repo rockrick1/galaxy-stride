@@ -16,6 +16,7 @@ export (Array) var generator_scripts
 
 const base_generator = preload("res://characters/bullet_generator.tscn")
 const drop_spawner = preload("res://drops/drop_spawner.tscn")
+const explosion = preload("res://characters/explosion.tscn")
 const enemy = true
 
 var character
@@ -132,9 +133,16 @@ func die(spawn_drops):
 	# Only spawns drops if killed by the player
 	if not is_dead and spawn_drops:
 		is_dead = true
+		spawn_explosion()
 		spawn_drops()
 	SfxPlayer.play("EnemyDeath")
 	queue_free()
+
+
+func spawn_explosion():
+	var ex = explosion.instance()
+	ex.position = self.position
+	stage.add_child(ex)
 
 
 func kill_generators():
