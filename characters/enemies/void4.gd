@@ -39,5 +39,9 @@ func move():
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$BossMove.start()
 
+
+func die():
+	pass
+
 func _on_MoveTimer_timeout():
 	move()
