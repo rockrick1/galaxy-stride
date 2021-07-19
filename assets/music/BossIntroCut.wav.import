@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BossIntroCut.wav-add21404fffc6968d9ca2097edf5baca.sample"
+
+[deps]
+
+source_file="res://assets/music/BossIntroCut.wav"
+dest_files=[ "res://.import/BossIntroCut.wav-add21404fffc6968d9ca2097edf5baca.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

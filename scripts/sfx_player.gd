@@ -14,7 +14,7 @@ func play(sfx_name : String):
 
 func play_music(name : String):
 	stop_music()
-	print("name music ",name)
+	print("playing music ",name)
 	get_node(name).play()
 
 
