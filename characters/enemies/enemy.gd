@@ -16,7 +16,7 @@ export (Array) var generator_scripts
 
 const base_generator = preload("res://characters/bullet_generator.tscn")
 const drop_spawner = preload("res://drops/drop_spawner.tscn")
-const explosion = preload("res://characters/explosion.tscn")
+const explosion_scene = preload("res://characters/explosion.tscn")
 const enemy = true
 
 var character
@@ -139,8 +139,8 @@ func die(spawn_drops):
 	queue_free()
 
 
-func spawn_explosion():
-	var ex = explosion.instance()
+func spawn_explosion(position = Vector2(0, 0)):
+	var ex = explosion_scene.instance()
 	ex.global_position = self.global_position
 	stage.add_child_below_node(self, ex)
 

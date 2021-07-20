@@ -57,7 +57,7 @@ modulate = Color( 1, 84.89, 1, 1 )
 material = ExtResource( 3 )
 frames = ExtResource( 2 )
 animation = "void4"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -88,6 +88,9 @@ one_shot = true
 wait_time = 2.0
 autostart = true
 
+[node name="ExplosionInterval" type="Timer" parent="."]
+
 [connection signal="tween_all_completed" from="Move" to="." method="_on_Move_tween_all_completed"]
 [connection signal="timeout" from="ExitTimer" to="." method="_on_ExitTimer_timeout"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
+[connection signal="timeout" from="ExplosionInterval" to="." method="_on_ExplosionInterval_timeout"]

@@ -75,6 +75,7 @@ modulate = Color( 1, 84.89, 1, 1 )
 material = SubResource( 2 )
 frames = ExtResource( 2 )
 animation = "void1"
+frame = 2
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

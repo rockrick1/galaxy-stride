@@ -4,6 +4,10 @@ extends "enemy.gd"
 # for the love of god please do not connect the BossMove tween on the
 # _on_Move_tween_all_completed() of the base enemy script
 
+const num_explosions : int = 15
+var exploded : int = 0
+const explosion_interval : float = 0.3
+
 
 const move_pos = [
 	48, # 7.5
@@ -24,6 +28,7 @@ const move_time = 1
 var current_pos_id = 0
 
 func _ready():
+	$ExplosionInterval.wait_time = explosion_interval
 	$MoveTimer.wait_time = move_interval
 
 func move():
@@ -40,8 +45,19 @@ func move():
 	$BossMove.start()
 
 
-func die():
-	pass
+func death_anim():
+	_on_ExplosionInterval_timeout()
+	$ExplosionInterval.start()
+
 
 func _on_MoveTimer_timeout():
 	move()
+
+
+func _on_ExplosionInterval_timeout():
+	var x = (randi() % 30) - 15
+	var y = (randi() % 30) - 15
+	var offset = Vector2(x, y)
+	var ex = explosion_scene.instance()
+	ex.global_position = self.global_position + offset
+	
