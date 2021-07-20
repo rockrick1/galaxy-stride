@@ -54,10 +54,10 @@ func _on_MoveTimer_timeout():
 	move()
 
 
+# will spawn explosion 'num_explosions' with the
+# 'explosion_interval' interval, then stop
 func _on_ExplosionInterval_timeout():
-	var x = (randi() % 30) - 15
-	var y = (randi() % 30) - 15
-	var offset = Vector2(x, y)
-	var ex = explosion_scene.instance()
-	ex.global_position = self.global_position + offset
-	
+	spawn_explosion(Vector2((randi() % 30) - 15,(randi() % 30) - 15))
+	exploded += 1
+	if exploded >= num_explosions:
+		$ExplosionInterval.stop()

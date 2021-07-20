@@ -139,9 +139,9 @@ func die(spawn_drops):
 	queue_free()
 
 
-func spawn_explosion(position = Vector2(0, 0)):
+func spawn_explosion(offset = Vector2(0, 0)):
 	var ex = explosion_scene.instance()
-	ex.global_position = self.global_position
+	ex.global_position = self.global_position + offset
 	stage.add_child_below_node(self, ex)
 
 
