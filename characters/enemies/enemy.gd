@@ -121,7 +121,7 @@ func on_bomb():
 	take_damage(BOMB_DMG)
 
 
-func die(spawn_drops):
+func die(spawn_drops : bool):
 	if not exit:
 		kill_generators()
 		character.stats.enemies_killed += 1
@@ -139,10 +139,13 @@ func die(spawn_drops):
 	queue_free()
 
 
-func spawn_explosion(offset = Vector2(0, 0)):
+func spawn_explosion(offset = Vector2(0, 0), scale = Vector2(1, 1), play_sound = false):
 	var ex = explosion_scene.instance()
 	ex.global_position = self.global_position + offset
+	ex.scale = scale
 	stage.add_child_below_node(self, ex)
+	if play_sound:
+		SfxPlayer.play("EnemyDeath")
 
 
 func kill_generators():

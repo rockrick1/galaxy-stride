@@ -4,9 +4,9 @@ extends "enemy.gd"
 # for the love of god please do not connect the BossMove tween on the
 # _on_Move_tween_all_completed() of the base enemy script
 
-const num_explosions : int = 15
+const num_explosions : int = 20
 var exploded : int = 0
-const explosion_interval : float = 0.3
+const explosion_interval : float = 0.15
 
 
 const move_pos = [
@@ -45,9 +45,14 @@ func move():
 	$BossMove.start()
 
 
-func death_anim():
+func die(spawn_drops : bool):
 	_on_ExplosionInterval_timeout()
 	$ExplosionInterval.start()
+	$BossMove.stop_all()
+	$Hitbox.disabled = true # doesn't work :/
+	is_dead = true
+	kill_generators()
+#	.die(spawn_drops)
 
 
 func _on_MoveTimer_timeout():
@@ -57,7 +62,16 @@ func _on_MoveTimer_timeout():
 # will spawn explosion 'num_explosions' with the
 # 'explosion_interval' interval, then stop
 func _on_ExplosionInterval_timeout():
-	spawn_explosion(Vector2((randi() % 30) - 15,(randi() % 30) - 15))
 	exploded += 1
+	# generates random position for explosion
+	var offset = Vector2((randi() % 40) - 20,(randi() % 80) - 40)
+	var scale = Vector2(.5,.5)
+	if exploded == num_explosions:
+		offset = Vector2.ZERO
+		scale = Vector2(2,2)
+	# spawns explosion, with sound
+	spawn_explosion(offset, scale, true)
 	if exploded >= num_explosions:
 		$ExplosionInterval.stop()
+		spawn_drops()
+		queue_free()
