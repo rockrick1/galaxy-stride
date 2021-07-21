@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/sfx_player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/Pickup__007.wav" type="AudioStream" id=2]
@@ -12,6 +12,34 @@
 [ext_resource path="res://assets/music/BossIntroCut.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/music/BossMain.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/sfx/Pickup__008.wav" type="AudioStream" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -10.0, -60.0, -10.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "fade_to_boss"
@@ -57,7 +85,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
@@ -96,6 +124,9 @@ volume_db = -10.0
 stream = ExtResource( 11 )
 volume_db = -10.0
 
+[node name="Animation" type="AnimationPlayer" parent="MusicBoss"]
+anims/fade_out = SubResource( 1 )
+
 [node name="MusicStage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -10.0
@@ -108,7 +139,7 @@ stream = ExtResource( 8 )
 volume_db = -10.0
 
 [node name="Animation" type="AnimationPlayer" parent="MusicMenu"]
-anims/fade_out = SubResource( 1 )
+anims/fade_out = SubResource( 3 )
 
 [node name="CharDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

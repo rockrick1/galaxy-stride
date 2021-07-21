@@ -46,12 +46,16 @@ func move():
 
 
 func die(spawn_drops : bool):
+	if is_dead:
+		return
 	_on_ExplosionInterval_timeout()
 	$ExplosionInterval.start()
 	$BossMove.stop_all()
-	$Hitbox.disabled = true # doesn't work :/
+	$MoveTimer.stop()
+	$Hitbox.queue_free()
 	is_dead = true
 	kill_generators()
+	SfxPlayer.play_music_anim("MusicBoss", "fade_out")
 #	.die(spawn_drops)
 
 
@@ -68,7 +72,7 @@ func _on_ExplosionInterval_timeout():
 	var scale = Vector2(.5,.5)
 	if exploded == num_explosions:
 		offset = Vector2.ZERO
-		scale = Vector2(2,2)
+		scale = Vector2(1.6,1.6)
 	# spawns explosion, with sound
 	spawn_explosion(offset, scale, true)
 	if exploded >= num_explosions:

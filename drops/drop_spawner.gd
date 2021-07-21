@@ -6,6 +6,8 @@ var stage
 var num_drops
 var spawned_drops
 
+func _ready():
+	$Timer.wait_time = .5 / num_drops
 
 func spawn_drop():
 	var instance
