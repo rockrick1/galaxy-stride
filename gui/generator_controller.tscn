@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/button_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://gui/generator_controller.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0117647, 0.0117647, 0.0117647, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 15
 
 [node name="Controller" type="VBoxContainer"]
 margin_right = 500.0
@@ -13,366 +30,388 @@ __meta__ = {
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 margin_right = 500.0
-margin_bottom = 278.0
+margin_bottom = 250.0
 
 [node name="Generator" type="HBoxContainer" parent="Buttons"]
 margin_right = 500.0
-margin_bottom = 15.0
+margin_bottom = 13.0
 
 [node name="GeneratorDown" type="Button" parent="Buttons/Generator"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="GeneratorUp" type="Button" parent="Buttons/Generator"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="GeneratorAdd" type="Button" parent="Buttons/Generator"]
-margin_left = 37.0
-margin_right = 58.0
-margin_bottom = 15.0
+margin_left = 33.0
+margin_right = 52.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "add"
 
 [node name="Button" type="Label" parent="Buttons/Generator"]
-margin_left = 62.0
-margin_top = 3.0
-margin_right = 89.0
-margin_bottom = 12.0
+margin_left = 56.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "Generator: "
 
 [node name="Number" type="Label" parent="Buttons/Generator"]
-margin_left = 93.0
-margin_top = 3.0
-margin_right = 96.0
-margin_bottom = 12.0
+margin_left = 87.0
+margin_top = 2.0
+margin_right = 90.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "-1"
 
 [node name="Life" type="HBoxContainer" parent="Buttons"]
-margin_top = 19.0
+margin_top = 17.0
 margin_right = 500.0
-margin_bottom = 34.0
+margin_bottom = 30.0
 
 [node name="LifeDown" type="Button" parent="Buttons/Life"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="LifeUp" type="Button" parent="Buttons/Life"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/Life"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 48.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 44.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "Life: "
 
 [node name="Number" type="Label" parent="Buttons/Life"]
-margin_left = 52.0
-margin_top = 3.0
-margin_right = 55.0
-margin_bottom = 12.0
+margin_left = 48.0
+margin_top = 2.0
+margin_right = 51.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="BulletsPerArray" type="HBoxContainer" parent="Buttons"]
-margin_top = 38.0
+margin_top = 34.0
 margin_right = 500.0
-margin_bottom = 53.0
+margin_bottom = 47.0
 
 [node name="BulletsPerArrayDown" type="Button" parent="Buttons/BulletsPerArray"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="BulletsPerArrayUp" type="Button" parent="Buttons/BulletsPerArray"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/BulletsPerArray"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 77.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 73.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "BulletsPerArray: "
 
 [node name="Number" type="Label" parent="Buttons/BulletsPerArray"]
-margin_left = 81.0
-margin_top = 3.0
-margin_right = 84.0
-margin_bottom = 12.0
+margin_left = 77.0
+margin_top = 2.0
+margin_right = 80.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="IndividualArraySpread" type="HBoxContainer" parent="Buttons"]
-margin_top = 57.0
+margin_top = 51.0
 margin_right = 500.0
-margin_bottom = 72.0
+margin_bottom = 64.0
 
 [node name="IndividualArraySpreadDown" type="Button" parent="Buttons/IndividualArraySpread"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="IndividualArraySpreadUp" type="Button" parent="Buttons/IndividualArraySpread"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/IndividualArraySpread"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 92.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 88.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "IndividualArraySpread: "
 
 [node name="Number" type="Label" parent="Buttons/IndividualArraySpread"]
-margin_left = 96.0
-margin_top = 3.0
-margin_right = 99.0
-margin_bottom = 12.0
+margin_left = 92.0
+margin_top = 2.0
+margin_right = 95.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="TotalBulletArrays" type="HBoxContainer" parent="Buttons"]
-margin_top = 76.0
+margin_top = 68.0
 margin_right = 500.0
-margin_bottom = 91.0
+margin_bottom = 81.0
 
 [node name="TotalBulletArraysDown" type="Button" parent="Buttons/TotalBulletArrays"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="TotalBulletArraysUp" type="Button" parent="Buttons/TotalBulletArrays"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/TotalBulletArrays"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 81.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "TotalBulletArrays: "
 
 [node name="Number" type="Label" parent="Buttons/TotalBulletArrays"]
-margin_left = 85.0
-margin_top = 3.0
-margin_right = 88.0
-margin_bottom = 12.0
+margin_left = 81.0
+margin_top = 2.0
+margin_right = 84.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="TotalArraySpread" type="HBoxContainer" parent="Buttons"]
-margin_top = 95.0
+margin_top = 85.0
 margin_right = 500.0
-margin_bottom = 110.0
+margin_bottom = 98.0
 
 [node name="TotalArraySpreadDown" type="Button" parent="Buttons/TotalArraySpread"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="TotalArraySpreadUp" type="Button" parent="Buttons/TotalArraySpread"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/TotalArraySpread"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 82.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 78.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "TotalArraySpread: "
 
 [node name="Number" type="Label" parent="Buttons/TotalArraySpread"]
-margin_left = 86.0
-margin_top = 3.0
-margin_right = 89.0
-margin_bottom = 12.0
+margin_left = 82.0
+margin_top = 2.0
+margin_right = 85.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="BaseSpinSpeed" type="HBoxContainer" parent="Buttons"]
-margin_top = 114.0
+margin_top = 102.0
 margin_right = 500.0
-margin_bottom = 129.0
+margin_bottom = 115.0
 
 [node name="BaseSpinSpeedDown" type="Button" parent="Buttons/BaseSpinSpeed"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="BaseSpinSpeedUp" type="Button" parent="Buttons/BaseSpinSpeed"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/BaseSpinSpeed"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 77.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 73.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "BaseSpinSpeed: "
 
 [node name="Number" type="Label" parent="Buttons/BaseSpinSpeed"]
-margin_left = 81.0
-margin_top = 3.0
-margin_right = 84.0
-margin_bottom = 12.0
+margin_left = 77.0
+margin_top = 2.0
+margin_right = 80.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="SpinSpeedPeriod" type="HBoxContainer" parent="Buttons"]
-margin_top = 133.0
+margin_top = 119.0
 margin_right = 500.0
-margin_bottom = 148.0
+margin_bottom = 132.0
 
 [node name="SpinSpeedPeriodDown" type="Button" parent="Buttons/SpinSpeedPeriod"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="SpinSpeedPeriodUp" type="Button" parent="Buttons/SpinSpeedPeriod"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/SpinSpeedPeriod"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 80.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 76.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "SpinSpeedPeriod: "
 
 [node name="Number" type="Label" parent="Buttons/SpinSpeedPeriod"]
-margin_left = 84.0
-margin_top = 3.0
-margin_right = 87.0
-margin_bottom = 12.0
+margin_left = 80.0
+margin_top = 2.0
+margin_right = 83.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="SpinVariation" type="HBoxContainer" parent="Buttons"]
-margin_top = 152.0
+margin_top = 136.0
 margin_right = 500.0
-margin_bottom = 167.0
+margin_bottom = 149.0
 
 [node name="SpinVariationDown" type="Button" parent="Buttons/SpinVariation"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="SpinVariationUp" type="Button" parent="Buttons/SpinVariation"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/SpinVariation"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 71.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 67.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "SpinVariation: "
 
 [node name="Number" type="Label" parent="Buttons/SpinVariation"]
-margin_left = 75.0
-margin_top = 3.0
-margin_right = 78.0
-margin_bottom = 12.0
+margin_left = 71.0
+margin_top = 2.0
+margin_right = 74.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="AimAtCharacter" type="HBoxContainer" parent="Buttons"]
-margin_top = 171.0
+margin_top = 153.0
 margin_right = 500.0
-margin_bottom = 195.0
+margin_bottom = 173.0
 
 [node name="AimAtCharacter" type="CheckBox" parent="Buttons/AimAtCharacter"]
-margin_right = 24.0
-margin_bottom = 24.0
+margin_right = 26.0
+margin_bottom = 20.0
+custom_styles/normal = SubResource( 1 )
 
 [node name="Button" type="Label" parent="Buttons/AimAtCharacter"]
-margin_left = 28.0
-margin_top = 7.0
-margin_right = 67.0
-margin_bottom = 16.0
+margin_left = 30.0
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 14.0
 custom_fonts/font = ExtResource( 1 )
 text = "AimAtCharacter: "
 
 [node name="FireRate" type="HBoxContainer" parent="Buttons"]
-margin_top = 199.0
+margin_top = 177.0
 margin_right = 500.0
-margin_bottom = 221.0
+margin_bottom = 199.0
 
 [node name="FireRateDown" type="Button" parent="Buttons/FireRate"]
-margin_right = 14.0
+margin_right = 12.0
 margin_bottom = 22.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="FireRateUp" type="Button" parent="Buttons/FireRate"]
-margin_left = 18.0
-margin_right = 33.0
+margin_left = 16.0
+margin_right = 29.0
 margin_bottom = 22.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/FireRate"]
-margin_left = 37.0
-margin_right = 67.0
+margin_left = 33.0
+margin_right = 63.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 1 )
 text = "FireRate: 
 FireInterval: "
 
 [node name="Numbers" type="VBoxContainer" parent="Buttons/FireRate"]
-margin_left = 71.0
-margin_right = 74.0
+margin_left = 67.0
+margin_right = 70.0
 margin_bottom = 22.0
 
 [node name="Number1" type="Label" parent="Buttons/FireRate/Numbers"]
@@ -389,124 +428,133 @@ custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="CyclesPerInterval" type="HBoxContainer" parent="Buttons"]
-margin_top = 225.0
+margin_top = 203.0
 margin_right = 500.0
-margin_bottom = 240.0
+margin_bottom = 216.0
 
 [node name="CyclesPerIntervalDown" type="Button" parent="Buttons/CyclesPerInterval"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="CyclesPerIntervalUp" type="Button" parent="Buttons/CyclesPerInterval"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/CyclesPerInterval"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 82.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 78.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "CyclesPerInterval: "
 
 [node name="Number" type="Label" parent="Buttons/CyclesPerInterval"]
-margin_left = 86.0
-margin_top = 3.0
-margin_right = 89.0
-margin_bottom = 12.0
+margin_left = 82.0
+margin_top = 2.0
+margin_right = 85.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="BulletSpeed" type="HBoxContainer" parent="Buttons"]
-margin_top = 244.0
+margin_top = 220.0
 margin_right = 500.0
-margin_bottom = 259.0
+margin_bottom = 233.0
 
 [node name="BulletSpeedDown" type="Button" parent="Buttons/BulletSpeed"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="BulletSpeedUp" type="Button" parent="Buttons/BulletSpeed"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/BulletSpeed"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 64.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "BulletSpeed: "
 
 [node name="Number" type="Label" parent="Buttons/BulletSpeed"]
-margin_left = 72.0
-margin_top = 3.0
-margin_right = 75.0
-margin_bottom = 12.0
+margin_left = 68.0
+margin_top = 2.0
+margin_right = 71.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="BulletLife" type="HBoxContainer" parent="Buttons"]
-margin_top = 263.0
+margin_top = 237.0
 margin_right = 500.0
-margin_bottom = 278.0
+margin_bottom = 250.0
 
 [node name="BulletLifeDown" type="Button" parent="Buttons/BulletLife"]
-margin_right = 14.0
-margin_bottom = 15.0
+margin_right = 12.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "-"
 
 [node name="BulletLifeUp" type="Button" parent="Buttons/BulletLife"]
-margin_left = 18.0
-margin_right = 33.0
-margin_bottom = 15.0
+margin_left = 16.0
+margin_right = 29.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "+"
 
 [node name="Button" type="Label" parent="Buttons/BulletLife"]
-margin_left = 37.0
-margin_top = 3.0
-margin_right = 61.0
-margin_bottom = 12.0
+margin_left = 33.0
+margin_top = 2.0
+margin_right = 57.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "BulletLife: "
 
 [node name="Number" type="Label" parent="Buttons/BulletLife"]
-margin_left = 65.0
-margin_top = 3.0
-margin_right = 68.0
-margin_bottom = 12.0
+margin_left = 61.0
+margin_top = 2.0
+margin_right = 64.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 
 [node name="ExtraButtons" type="HBoxContainer" parent="."]
-margin_top = 282.0
+margin_top = 254.0
 margin_right = 500.0
-margin_bottom = 297.0
+margin_bottom = 267.0
 
 [node name="ZeroDiff" type="Button" parent="ExtraButtons"]
-margin_right = 33.0
-margin_bottom = 15.0
+margin_right = 31.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "Zero Diff"
 
 [node name="Quit" type="Button" parent="ExtraButtons"]
-margin_left = 37.0
-margin_right = 58.0
-margin_bottom = 15.0
+margin_left = 35.0
+margin_right = 54.0
+margin_bottom = 13.0
+custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "Quit"
+
 [connection signal="pressed" from="Buttons/Generator/GeneratorDown" to="." method="_on_GeneratorDown_pressed"]
 [connection signal="pressed" from="Buttons/Generator/GeneratorUp" to="." method="_on_GeneratorUp_pressed"]
 [connection signal="pressed" from="Buttons/Generator/GeneratorAdd" to="." method="_on_GeneratorAdd_pressed"]

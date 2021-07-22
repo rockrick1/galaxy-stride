@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://menus/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/misc/stars.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/alterebro-pixel-font.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/fonts/button_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/styles/menu_button.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/styles/menu_button_pressed.tres" type="StyleBox" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -283,24 +285,25 @@ __meta__ = {
 }
 
 [node name="MenuItems" type="VBoxContainer" parent="."]
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = 0.420441
+margin_top = 0.44545
+margin_right = 512.42
+margin_bottom = 300.445
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
-margin_right = 512.0
-margin_bottom = 27.0
+margin_right = 511.0
+margin_bottom = 24.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.61
 
 [node name="Label" type="Label" parent="MenuItems"]
-margin_top = 31.0
-margin_right = 512.0
-margin_bottom = 73.0
+margin_top = 28.0
+margin_right = 511.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 256, 20 )
 custom_fonts/font = SubResource( 3 )
 text = "GALAXY STRIDE"
@@ -322,26 +325,31 @@ scale = Vector2( 0.25, 1 )
 
 [node name="HSeparator2" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 77.0
-margin_right = 512.0
-margin_bottom = 122.0
+margin_top = 74.0
+margin_right = 511.0
+margin_bottom = 113.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.62
 
 [node name="Buttons" type="VBoxContainer" parent="MenuItems"]
-margin_left = 238.0
-margin_top = 126.0
-margin_right = 273.0
-margin_bottom = 217.0
+margin_left = 204.0
+margin_top = 117.0
+margin_right = 307.0
+margin_bottom = 228.0
 size_flags_horizontal = 4
 
 [node name="NewGame" type="Button" parent="MenuItems/Buttons"]
-margin_right = 35.0
-margin_bottom = 15.0
-rect_pivot_offset = Vector2( 17.5, 7.5 )
+margin_right = 103.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 51, 9 )
 focus_neighbour_top = NodePath("../Quit")
 focus_neighbour_bottom = NodePath("../Settings")
 mouse_filter = 1
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "New Game"
 
@@ -350,13 +358,18 @@ anims/hover = SubResource( 5 )
 anims/unhover = SubResource( 6 )
 
 [node name="Tutorial" type="Button" parent="MenuItems/Buttons"]
-margin_top = 19.0
-margin_right = 35.0
-margin_bottom = 34.0
-rect_pivot_offset = Vector2( 17.5, 7.5 )
+margin_top = 23.0
+margin_right = 103.0
+margin_bottom = 42.0
+rect_pivot_offset = Vector2( 51, 9.5 )
 focus_neighbour_top = NodePath("../Quit")
 focus_neighbour_bottom = NodePath("../Settings")
 mouse_filter = 1
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "Tutorial"
 
@@ -381,13 +394,18 @@ anims/hover = SubResource( 9 )
 anims/unhover = SubResource( 10 )
 
 [node name="Demo" type="Button" parent="MenuItems/Buttons"]
-margin_top = 38.0
-margin_right = 35.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( 17.5, 7.5 )
+margin_top = 46.0
+margin_right = 103.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 51, 9.5 )
 focus_neighbour_top = NodePath("../Quit")
 focus_neighbour_bottom = NodePath("../Settings")
 mouse_filter = 1
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "Demo"
 
@@ -396,13 +414,18 @@ anims/hover = SubResource( 11 )
 anims/unhover = SubResource( 12 )
 
 [node name="Credits" type="Button" parent="MenuItems/Buttons"]
-margin_top = 57.0
-margin_right = 35.0
-margin_bottom = 72.0
-rect_pivot_offset = Vector2( 17.5, 7.5 )
+margin_top = 69.0
+margin_right = 103.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 51, 9.5 )
 focus_neighbour_top = NodePath("../Quit")
 focus_neighbour_bottom = NodePath("../Settings")
 mouse_filter = 1
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "Credits"
 
@@ -411,13 +434,18 @@ anims/hover = SubResource( 13 )
 anims/unhover = SubResource( 14 )
 
 [node name="Quit" type="Button" parent="MenuItems/Buttons"]
-margin_top = 76.0
-margin_right = 35.0
-margin_bottom = 91.0
-rect_pivot_offset = Vector2( 17.5, 7.5 )
+margin_top = 92.0
+margin_right = 103.0
+margin_bottom = 111.0
+rect_pivot_offset = Vector2( 51, 9.5 )
 focus_neighbour_top = NodePath("../Quit")
 focus_neighbour_bottom = NodePath("../Settings")
 mouse_filter = 1
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
 custom_fonts/font = ExtResource( 4 )
 text = "Quit"
 
@@ -427,8 +455,8 @@ anims/unhover = SubResource( 16 )
 
 [node name="HSeparator3" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 221.0
-margin_right = 512.0
+margin_top = 232.0
+margin_right = 511.0
 margin_bottom = 300.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.55
