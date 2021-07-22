@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/alterebro-pixel-font.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/sprites/ships_biomech1.png" type="Texture" id=3]
 [ext_resource path="res://menus/css.gd" type="Script" id=4]
-[ext_resource path="res://assets/sprites/menus/ship_frame.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/ship_frame.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28

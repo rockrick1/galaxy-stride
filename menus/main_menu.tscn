@@ -260,7 +260,6 @@ tracks/0/keys = {
 }
 
 [node name="Main Menu" type="Control"]
-modulate = Color( 0.5, 0.5, 0.5, 1 )
 margin_right = 1920.0
 margin_bottom = 1081.0
 script = ExtResource( 1 )
@@ -295,14 +294,14 @@ __meta__ = {
 [node name="HSeparator" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 511.0
-margin_bottom = 26.0
+margin_bottom = 18.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.61
 
 [node name="Label" type="Label" parent="MenuItems"]
-margin_top = 30.0
+margin_top = 22.0
 margin_right = 511.0
-margin_bottom = 72.0
+margin_bottom = 64.0
 rect_pivot_offset = Vector2( 256, 20 )
 custom_fonts/font = SubResource( 3 )
 text = "GALAXY STRIDE"
@@ -324,17 +323,17 @@ scale = Vector2( 0.25, 1 )
 
 [node name="HSeparator2" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 76.0
+margin_top = 68.0
 margin_right = 511.0
-margin_bottom = 118.0
+margin_bottom = 98.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.62
 
 [node name="Buttons" type="VBoxContainer" parent="MenuItems"]
 margin_left = 204.0
-margin_top = 122.0
+margin_top = 102.0
 margin_right = 307.0
-margin_bottom = 263.0
+margin_bottom = 243.0
 size_flags_horizontal = 4
 
 [node name="NewGame" type="Button" parent="MenuItems/Buttons"]
@@ -454,9 +453,9 @@ anims/unhover = SubResource( 16 )
 
 [node name="HSeparator3" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 267.0
+margin_top = 247.0
 margin_right = 511.0
-margin_bottom = 341.0
+margin_bottom = 300.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.55
 

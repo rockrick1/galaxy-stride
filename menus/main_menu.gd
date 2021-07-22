@@ -85,6 +85,7 @@ func change_button(prev, new):
 
 
 func play_scene():
+	print("socorro")
 	get_tree().change_scene("res://menus/css.tscn")
 
 
