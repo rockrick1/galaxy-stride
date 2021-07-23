@@ -98,46 +98,54 @@ func _on_Quit_pressed():
 
 func _on_play_mouse_entered():
 	# $Buttons/Play.texture_normal = play_glow
-	$MenuItems/Buttons/NewGame/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/NewGame/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/NewGame/AnimationPlayer.play("hover")
 
 func _on_settings_mouse_entered():
 	hovering = 2
 	# $Buttons/Settings.texture_normal = settings_glow
-	$MenuItems/Buttons/Settings/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/Settings/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Settings/AnimationPlayer.play("hover")
 
 func _on_credits_mouse_entered():
 	hovering = 3
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Credits/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/Credits/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Credits/AnimationPlayer.play("hover")
 
 func _on_quit_mouse_entered():
 	hovering = 4
 	# $Buttons/Quit.texture_normal = quit_glow
-	$MenuItems/Buttons/Quit/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/Quit/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Quit/AnimationPlayer.play("hover")
 
 
 func _on_play_mouse_exited():
 	hovering = 0
 	# $Buttons/Play.texture_normal = play
-	$MenuItems/Buttons/NewGame/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/NewGame/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/NewGame/AnimationPlayer.play("unhover")
 
 
 func _on_settings_mouse_exited():
 	hovering = 0
 	# $Buttons/Settings.texture_normal = settings
-	$MenuItems/Buttons/Settings/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/Settings/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Settings/AnimationPlayer.play("unhover")
 
 
 func _on_credits_mouse_exited():
 	hovering = 0
 	# $Buttons/Credits.texture_normal = credits
-	$MenuItems/Buttons/Credits/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/Credits/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Credits/AnimationPlayer.play("unhover")
 
 
 func _on_quit_mouse_exited():
 	hovering = 0
 	# $Buttons/Quit.texture_normal = quit
-	$MenuItems/Buttons/Quit/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/Quit/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Quit/AnimationPlayer.play("unhover")
 
 
 func _on_tutorial_pressed():
@@ -148,13 +156,15 @@ func _on_tutorial_pressed():
 func _on_tutorial_mouse_entered():
 	hovering = 3
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Tutorial/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/Tutorial/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Tutorial/AnimationPlayer.play("hover")
 
 
 func _on_tutorial_mouse_exited():
 	hovering = 0
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Tutorial/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/Tutorial/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Tutorial/AnimationPlayer.play("unhover")
 
 
 func _on_settings_pressed():
@@ -173,17 +183,19 @@ func _on_demo_pressed():
 func _on_demo_mouse_entered():
 	hovering = 3
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Demo/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/Demo/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Demo/AnimationPlayer.play("hover")
 
 
 func _on_demo_mouse_exited():
 	hovering = 0
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Demo/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/Demo/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Demo/AnimationPlayer.play("unhover")
 
 
 func _on_newgame_pressed():
-	if not $fade.is_playing():
+	if $fade.get_current_animation() != "fade_in":
 		SfxPlayer.play_music_anim("MusicMenu", "fade_out")
 		$fade.play("fade_out")
 	set_process(false)
@@ -198,10 +210,12 @@ func _on_Credits_pressed():
 func _on_Credits_mouse_entered():
 	hovering = 3
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Credits/AnimationPlayer.play("hover")
+	if $MenuItems/Buttons/Credits/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Credits/AnimationPlayer.play("hover")
 
 
 func _on_Credits_mouse_exited():
 	hovering = 0
 	# $Buttons/Credits.texture_normal = credits_glow
-	$MenuItems/Buttons/Credits/AnimationPlayer.play("unhover")
+	if $MenuItems/Buttons/Credits/AnimationPlayer.get_current_animation() != "fade_in":
+		$MenuItems/Buttons/Credits/AnimationPlayer.play("unhover")
