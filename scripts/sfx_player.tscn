@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/sfx_player.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/Pickup__007.wav" type="AudioStream" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/music/BossIntroCut.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/music/BossMain.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/sfx/Pickup__008.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sfx/hit_03.wav" type="AudioStream" id=13]
 
 [sub_resource type="Animation" id=4]
 resource_name = "play_next"
@@ -206,4 +207,8 @@ volume_db = -14.0
 
 [node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="UIHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 volume_db = -10.0

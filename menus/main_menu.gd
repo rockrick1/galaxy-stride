@@ -20,7 +20,6 @@ const credits_screen = preload("res://menus/credits.tscn")
 
 func _ready():
 	set_process(true)
-	SfxPlayer.play_music("MusicMenu")
 
 
 func check_null():
@@ -195,9 +194,9 @@ func _on_demo_mouse_exited():
 
 
 func _on_newgame_pressed():
-	if $fade.get_current_animation() != "fade_in":
+	if $Animation.get_current_animation() != "fade_in":
 		SfxPlayer.play_music_anim("MusicMenu", "fade_out")
-		$fade.play("fade_out")
+		$Animation.play("fade_out")
 	set_process(false)
 
 
@@ -219,3 +218,10 @@ func _on_Credits_mouse_exited():
 	# $Buttons/Credits.texture_normal = credits_glow
 	if $MenuItems/Buttons/Credits/AnimationPlayer.get_current_animation() != "fade_in":
 		$MenuItems/Buttons/Credits/AnimationPlayer.play("unhover")
+
+
+func _play_enter_sfx():
+	SfxPlayer.play("UIHit")
+
+func _start_music():
+	SfxPlayer.play_music("MusicMenu")
