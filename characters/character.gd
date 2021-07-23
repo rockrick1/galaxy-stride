@@ -49,6 +49,8 @@ const shots = [
 	preload("res://projectiles/character/shot2lv3.tscn"),
 ]
 
+const results_screen_scene = preload("res://menus/results.tscn")
+
 ########################### action recording ###################################
 const ActionRecorder = preload("res://scripts/action_recorder.gd")
 onready var action_recorder = ActionRecorder.new()
@@ -224,6 +226,7 @@ func take_damage(dmg):
 
 
 func die():
+	stage.deaths += 1
 	LIVES -= 1
 	if not CAN_DIE:
 		return
@@ -231,6 +234,8 @@ func die():
 		stage.game_over()
 		$AnimationPlayer.play("game_over")
 		$Hitbox/AnimationPlayer.play("HideHitbox")
+		$ShotEffect/AnimationPlayer.stop()
+		$ShotEffect.hide()
 		return
 	control = false
 	invincible = true
@@ -240,7 +245,7 @@ func die():
 	SfxPlayer.play("CharDeath")
 	
 	$ShotEffect/AnimationPlayer.stop()
-	$ShotEffect.set_visible(false)
+	$ShotEffect.hide()
 	strafing = false
 	$Hitbox/AnimationPlayer.play("HideHitbox")
 	$Hitbox.disabled = true
@@ -322,5 +327,13 @@ func _on_Invincibility_timeout():
 #	$Sprite.self_modulate = Color(1,1,1,1)
 
 
-func goto_main_menu():
-	get_tree().change_scene("res://menus/main_menu.tscn")
+func _play_death_sound():
+	SfxPlayer.play("CharDeath")
+
+
+func _show_results_screen():
+	var results = results_screen_scene.instance()
+	stage.add_child_below_node(stage.get_node("Background"), results)
+	results.set_deaths(stage.deaths)
+	results.set_diff(stage.overall_difficulty)
+	results.set_waves(stage.waves_cleared)

@@ -10,7 +10,10 @@ var end_border = Vector2(384,300)
 
 var n_bullets = 0
 
+# character variables
 var overall_difficulty = 0
+var waves_cleared = 0
+var deaths = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,7 +66,7 @@ func game_over():
 	$Background/Stars.queue_free()
 	$Enemies.queue_free()
 	$EnemyGenerator.queue_free()
-	$Music.stop()
+	SfxPlayer.stop_music()
 	for proj in get_children():
 		if "Projectile" in proj.name or "Drop" in proj.name:
 			proj.queue_free()

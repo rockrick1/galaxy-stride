@@ -15,9 +15,10 @@ func play(sfx_name : String):
 	get_node(sfx_name).play()
 
 
-func play_music(name : String):
+func play_music(name : String, volume : float = -10):
 	stop_music()
 	print("playing music ",name)
+	get_node(name).set_volume_db(volume)
 	get_node(name).play()
 
 
@@ -25,6 +26,8 @@ func stop_music():
 	for node in get_children():
 		if "Music" in node.name:
 			node.stop()
+			if node.get_node("Animation"):
+				node.get_node("Animation").stop()
 
 
 func play_boss_music():
@@ -32,12 +35,7 @@ func play_boss_music():
 	$MusicStage/Animation.play("fade_to_boss")
 
 
-func play_music_anim(name, anim_name : String):
+func play_music_anim(name : String, anim_name : String):
 	var node = get_node(name)
 	if node.has_node("Animation"):
 		node.get_node("Animation").play(anim_name)
-
-
-func _on_MusicBossIntro_finished():
-	$MusicBossIntro.stop()
-	$MusicBoss.play()

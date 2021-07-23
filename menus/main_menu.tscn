@@ -367,16 +367,8 @@ anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 2 )
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 margin_right = 512.0
 margin_bottom = 300.0
-color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="MenuItems" type="VBoxContainer" parent="."]
 margin_left = 0.420441
