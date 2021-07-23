@@ -220,8 +220,8 @@ func _on_Credits_mouse_exited():
 		$MenuItems/Buttons/Credits/AnimationPlayer.play("unhover")
 
 
-func _play_enter_sfx():
-	SfxPlayer.play("UIHit")
+func _play_enter_sfx(name : String):
+	SfxPlayer.play(name)
 
 func _start_music():
 	SfxPlayer.play_music("MusicMenu")
