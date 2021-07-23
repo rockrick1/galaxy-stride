@@ -54,7 +54,7 @@ tracks/1/keys = {
 size = 50
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=4]
 resource_name = "fade_in"
 length = 1.5
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "values": [ Vector2( -350, 22 ), Vector2( -350, 22 ), Vector2( 0, 22 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 12.0
 loop = true
 tracks/0/type = "value"
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.01, 1.01 ), Vector2( 1, 1 ), Vector2( 0.9, 0.99 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=6]
 resource_name = "fade_in"
 length = 0.5
 tracks/0/type = "value"
@@ -100,54 +100,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 0.2, 0.120742 ),
 "update": 0,
 "values": [ Vector2( 340, 0 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "hover"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "unhover"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=18]
-resource_name = "fade_in"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.6 ),
-"transitions": PoolRealArray( 1, 0.2, 1 ),
-"update": 0,
-"values": [ Vector2( 340, 29 ), Vector2( 340, 29 ), Vector2( 0, 29 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -183,6 +135,21 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 29 ), Vector2( 340, 29 ), Vector2( 0, 29 ) ]
+}
+
+[sub_resource type="Animation" id=10]
 resource_name = "hover"
 length = 0.1
 tracks/0/type = "value"
@@ -198,7 +165,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 resource_name = "unhover"
 length = 0.1
 tracks/0/type = "value"
@@ -214,23 +181,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "fade_in"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.8 ),
-"transitions": PoolRealArray( 1, 0.2, 1 ),
-"update": 0,
-"values": [ Vector2( 340, 58 ), Vector2( 340, 58 ), Vector2( 0, 58 ) ]
-}
-
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 resource_name = "hover"
 length = 0.1
 tracks/0/type = "value"
@@ -246,7 +197,101 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
+resource_name = "unhover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 58 ), Vector2( 340, 58 ), Vector2( 0, 58 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "unhover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.9
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 87 ), Vector2( 340, 87 ), Vector2( 0, 87 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "hover"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
 resource_name = "unhover"
 length = 0.1
 tracks/0/type = "value"
@@ -263,55 +308,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=20]
-resource_name = "fade_in"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.9 ),
-"transitions": PoolRealArray( 1, 0.2, 1 ),
-"update": 0,
-"values": [ Vector2( 340, 87 ), Vector2( 340, 87 ), Vector2( 0, 87 ) ]
-}
-
-[sub_resource type="Animation" id=13]
-resource_name = "hover"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
-}
-
-[sub_resource type="Animation" id=14]
-resource_name = "unhover"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=21]
-resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -325,7 +321,7 @@ tracks/0/keys = {
 "values": [ Vector2( 340, 116 ), Vector2( 340, 116 ), Vector2( 0, 116 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=21]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -340,7 +336,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=22]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -410,8 +406,8 @@ valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Label"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 22 )
-anims/pulse = SubResource( 4 )
+anims/fade_in = SubResource( 4 )
+anims/pulse = SubResource( 5 )
 
 [node name="StarsR" parent="MenuItems/Label" instance=ExtResource( 2 )]
 position = Vector2( 512, -38 )
@@ -455,14 +451,13 @@ text = "New Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Buttons/NewGame"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 17 )
-anims/hover = SubResource( 5 )
-anims/unhover = SubResource( 6 )
+anims/fade_in = SubResource( 6 )
+anims/hover = SubResource( 7 )
+anims/unhover = SubResource( 8 )
 
 [node name="Tutorial" type="Button" parent="MenuItems/Buttons"]
-margin_left = 0.108795
 margin_top = 29.0
-margin_right = 103.109
+margin_right = 103.0
 margin_bottom = 54.0
 rect_pivot_offset = Vector2( 51, 9.5 )
 focus_neighbour_top = NodePath("../Quit")
@@ -478,9 +473,9 @@ text = "Tutorial"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Buttons/Tutorial"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 18 )
-anims/hover = SubResource( 7 )
-anims/unhover = SubResource( 8 )
+anims/fade_in = SubResource( 9 )
+anims/hover = SubResource( 10 )
+anims/unhover = SubResource( 11 )
 
 [node name="Settings" type="Button" parent="MenuItems/Buttons"]
 visible = false
@@ -495,8 +490,8 @@ custom_fonts/font = ExtResource( 4 )
 text = "Settings"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Buttons/Settings"]
-anims/hover = SubResource( 9 )
-anims/unhover = SubResource( 10 )
+anims/hover = SubResource( 12 )
+anims/unhover = SubResource( 13 )
 
 [node name="Demo" type="Button" parent="MenuItems/Buttons"]
 margin_top = 58.0
@@ -516,9 +511,9 @@ text = "Demo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Buttons/Demo"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 19 )
-anims/hover = SubResource( 11 )
-anims/unhover = SubResource( 12 )
+anims/fade_in = SubResource( 14 )
+anims/hover = SubResource( 15 )
+anims/unhover = SubResource( 16 )
 
 [node name="Credits" type="Button" parent="MenuItems/Buttons"]
 margin_top = 87.0
@@ -538,9 +533,9 @@ text = "Credits"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Buttons/Credits"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 20 )
-anims/hover = SubResource( 13 )
-anims/unhover = SubResource( 14 )
+anims/fade_in = SubResource( 17 )
+anims/hover = SubResource( 18 )
+anims/unhover = SubResource( 19 )
 
 [node name="Quit" type="Button" parent="MenuItems/Buttons"]
 margin_top = 116.0
@@ -560,9 +555,9 @@ text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuItems/Buttons/Quit"]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 21 )
-anims/hover = SubResource( 15 )
-anims/unhover = SubResource( 16 )
+anims/fade_in = SubResource( 20 )
+anims/hover = SubResource( 21 )
+anims/unhover = SubResource( 22 )
 
 [node name="HSeparator3" type="HSeparator" parent="MenuItems"]
 modulate = Color( 1, 1, 1, 0 )
