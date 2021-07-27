@@ -405,6 +405,12 @@
                 },
             ],
         },
+        
+        {
+            "enemy_spawn_delay" : 2,
+            "boss" : true,
+            "enemies" : []
+        },
 
         {
             "enemy_spawn_delay" : 3,
