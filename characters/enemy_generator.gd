@@ -13,6 +13,7 @@ var wrs = []
 const starting_h = -75
 
 var cur_wave_n = -1
+var real_wave_n = 0
 var current_wave
 
 var cur_enemy_n = -1
@@ -31,6 +32,16 @@ const enemy_scenes = {
 func _ready():
 	stage = get_parent()
 	parse_vars(DBManager.get_stage(stagename))
+
+
+func _process(delta):
+	if spawn_complete:
+		for wr in wrs:
+			if wr.get_ref():
+				return
+		wrs = []
+		print("morreu tudo!")
+		start_next_wave()
 
 
 func convert_pos(pos):
@@ -74,7 +85,9 @@ func start_next_wave():
 	else:
 		cur_wave_n += 1
 	
-	stage.stats.update_wave(cur_wave_n+1)
+	if len(waves[cur_wave_n].enemies) > 0:
+		real_wave_n += 1
+		stage.update_wave(real_wave_n)
 	
 	current_wave = waves[cur_wave_n]
 	$EnemySpawnTimer.wait_time = waves[cur_wave_n].enemy_spawn_delay
@@ -110,16 +123,6 @@ func spawn_next_enemy():
 
 func _on_WaveTimer_timeout():
 	pass
-
-
-func _process(delta):
-	if spawn_complete:
-		for wr in wrs:
-			if wr.get_ref():
-				return
-		wrs = []
-		print("morreu tudo!")
-		start_next_wave()
 
 
 func _on_EnemySpawnTimer_timeout():

@@ -601,7 +601,6 @@ self_modulate = Color( 1, 1, 1, 0 )
 margin_top = 22.0
 margin_right = 511.0
 margin_bottom = 64.0
-rect_scale = Vector2( 18.9444, 18.9444 )
 rect_pivot_offset = Vector2( 256, 20 )
 custom_fonts/font = SubResource( 3 )
 text = "GALAXY STRIDE"

@@ -335,4 +335,5 @@ func _show_results_screen():
 	stage.add_child_below_node(stage.get_node("Background"), results)
 	results.set_deaths(stage.deaths)
 	results.set_diff(stage.overall_difficulty)
-	results.set_waves(stage.waves_cleared)
+	# current wave - 1 = waves cleared
+	results.set_waves(stage.waves_cleared - 1)

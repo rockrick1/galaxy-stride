@@ -33,6 +33,11 @@ func remove_bullet():
 	stats.update_bullets(n_bullets)
 
 
+func update_wave(num : int):
+	stats.update_wave(num)
+	waves_cleared = num
+
+
 func update_diff(no_hit_time, grazed_bullets):
 #	if is_demo:
 #		return

@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/sfx/hit_03.wav" type="AudioStream" id=13]
 [ext_resource path="res://assets/sfx/hit_04.wav" type="AudioStream" id=14]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "play_next"
 length = 2.05
 step = 0.05
@@ -51,8 +51,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=2]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:volume_db")
@@ -79,8 +78,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade_to_boss"
+[sub_resource type="Animation" id=3]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:volume_db")
@@ -123,7 +121,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:volume_db")
 tracks/0/interp = 1
@@ -159,28 +157,28 @@ stream = ExtResource( 10 )
 volume_db = -10.0
 
 [node name="Animation" type="AnimationPlayer" parent="MusicBossIntro"]
-anims/play_next = SubResource( 4 )
+anims/play_next = SubResource( 1 )
 
 [node name="MusicBoss" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -10.0
 
 [node name="Animation" type="AnimationPlayer" parent="MusicBoss"]
-anims/fade_out = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 
 [node name="MusicStage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -10.0
 
 [node name="Animation" type="AnimationPlayer" parent="MusicStage"]
-anims/fade_to_boss = SubResource( 2 )
+anims/fade_to_boss = SubResource( 3 )
 
 [node name="MusicMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -10.0
 
 [node name="Animation" type="AnimationPlayer" parent="MusicMenu"]
-anims/fade_out = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
 
 [node name="CharDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
