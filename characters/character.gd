@@ -193,7 +193,6 @@ func gain_drop():
 func graze():
 	if not invincible:
 		grazed_bullets += 1
-#		$Sprite/Blink.play("Blink")
 
 
 func bomb():
