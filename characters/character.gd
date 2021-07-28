@@ -221,6 +221,11 @@ func set_turning(side : int):
 
 
 func take_damage(_dmg):
+	pre_death()
+
+
+# Things to be done at the moment the character is killed
+func pre_death():
 	$ExplosionGenerator.start()
 	# Disables most of the player's current actions, like shooting and strafing
 	control = false
@@ -232,6 +237,7 @@ func take_damage(_dmg):
 	$Hitbox.disabled = true
 
 
+# Things to be done after all death animations have ended
 func die():
 	stage.deaths += 1
 	LIVES -= 1

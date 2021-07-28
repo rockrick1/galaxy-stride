@@ -40,17 +40,15 @@ func move():
 	$BossMove.start()
 
 
-func die(spawn_drops : bool):
-	if is_dead:
-		return
-	$ExplosionGenerator.start()
+func pre_death():
 	$BossMove.stop_all()
 	$MoveTimer.stop()
-	$Hitbox.queue_free()
-	is_dead = true
-	kill_generators()
 	SfxPlayer.play_music_anim("MusicBoss", "fade_out")
-#	.die(spawn_drops)
+	.pre_death()
+
+func die(spawn_drops : bool):
+	print("BOSS MORREEEEEEEEEEEEEEEU")
+	.die(spawn_drops)
 
 
 func _on_MoveTimer_timeout():

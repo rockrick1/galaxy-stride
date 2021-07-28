@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/void_sprite_frames.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://shaders/damage_blink.tres" type="Material" id=3]
+[ext_resource path="res://characters/explosion_generator.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.5413, 25.7604 )
@@ -57,7 +58,7 @@ modulate = Color( 1, 84.89, 1, 1 )
 material = ExtResource( 3 )
 frames = ExtResource( 2 )
 animation = "void2"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
@@ -77,6 +78,11 @@ process_material = SubResource( 3 )
 [node name="Generators" type="Node2D" parent="."]
 
 [node name="Move" type="Tween" parent="."]
+
+[node name="ExplosionGenerator" parent="." instance=ExtResource( 4 )]
+num_explosions = 1
+explosion_interval = 0.0
+last_explosion_centered = true
 
 [node name="ExitTimer" type="Timer" parent="."]
 wait_time = 20.0

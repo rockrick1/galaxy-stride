@@ -392,6 +392,7 @@ material = ExtResource( 11 )
 scale = Vector2( 0.690292, 0.690292 )
 frames = SubResource( 26 )
 animation = "cruiser2"
+frame = 1
 playing = true
 
 [node name="Invincible" type="AnimationPlayer" parent="Sprite"]

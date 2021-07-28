@@ -112,14 +112,23 @@ func spawn_drops():
 func take_damage(dmg):
 	HP -= dmg
 	$AnimationPlayer.play("take damage")
-	if HP <= 0:
-		die(true)
-
+	if HP <= 0 and not is_dead:
+		pre_death()
 
 func on_bomb():
 	take_damage(BOMB_DMG)
 
 
+# Things to be done at the moment the character is killed
+func pre_death():
+	is_dead = true
+	kill_generators()
+	$Hitbox.queue_free()
+	if $ExplosionGenerator:
+		$ExplosionGenerator.start()
+
+
+# Things to be done after all death animations have ended
 func die(spawn_drops : bool):
 	if not exit:
 		kill_generators()
@@ -130,11 +139,9 @@ func die(spawn_drops : bool):
 	# Prevents method from being called multiple times when getting hit
 	# by multiple projectiles in the same frame
 	# Only spawns drops if killed by the player
-	if not is_dead and spawn_drops:
+	if spawn_drops:
 		is_dead = true
-		$ExplosionGenerator.start()
 		spawn_drops()
-		SfxPlayer.play("EnemyDeath")
 	queue_free()
 
 
@@ -143,9 +150,9 @@ func kill_generators():
 		generator.die()
 
 
+# Death animations ended, calls die(bool) funcion
 func _on_ExplosionGenerator_finished():
-	print("cabaram as explosoes!!")
-	pass
+	die(true)
 
 
 func _on_Move_tween_all_completed():
