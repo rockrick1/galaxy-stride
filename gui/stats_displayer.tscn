@@ -154,7 +154,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.06
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
-value = 50.0
 percent_visible = false
 
 [node name="PowerLabel" type="Label" parent="Stats"]
@@ -176,7 +175,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.06
 custom_styles/fg = SubResource( 5 )
 custom_styles/bg = SubResource( 4 )
-value = 50.0
 percent_visible = false
 
 [node name="BombsLabel" type="Label" parent="Stats"]
@@ -198,7 +196,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.06
 custom_styles/fg = SubResource( 6 )
 custom_styles/bg = SubResource( 4 )
-value = 50.0
 percent_visible = false
 
 [node name="HSeparator2" type="HSeparator" parent="Stats"]

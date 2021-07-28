@@ -129,7 +129,7 @@ func _process(delta):
 		move_and_slide(mot / delta)
 		
 	############################# shooting #####################################
-	if Input.is_action_pressed("ui_left_mb") or Input.is_action_pressed("ui_spacebar"):
+	if Input.is_action_pressed("ui_z"):
 		$ShotEffect/AnimationPlayer.play("Shooting")
 		if can_shoot:
 			can_shoot = false
@@ -146,15 +146,15 @@ func _process(delta):
 		shooting = false
 	
 	################################## strafe ##################################
-	if Input.is_action_just_pressed("ui_shift") or Input.is_action_just_pressed("ui_right_mb"):
+	if Input.is_action_just_pressed("ui_shift"):
 		strafing = true
 		$Hitbox/AnimationPlayer.play("ShowHitbox")
-	elif strafing and not Input.is_action_pressed("ui_shift") and not Input.is_action_pressed("ui_right_mb"):
+	elif strafing and not Input.is_action_pressed("ui_shift"):
 		strafing = false
 		$Hitbox/AnimationPlayer.play("HideHitbox")
 		
 	################################### bomb ###################################
-	if Input.is_action_just_pressed("ui_Q") and BOMBS > 0 and not $BombEffect/AnimationPlayer.is_playing():
+	if Input.is_action_just_pressed("ui_x") and BOMBS > 0 and not $BombEffect/AnimationPlayer.is_playing():
 		bomb()
 
 	############################################################################
