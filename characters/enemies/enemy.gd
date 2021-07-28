@@ -123,6 +123,7 @@ func on_bomb():
 func pre_death():
 	is_dead = true
 	kill_generators()
+	$Move.stop_all()
 	$Hitbox.queue_free()
 	if $ExplosionGenerator:
 		$ExplosionGenerator.start()
@@ -134,7 +135,6 @@ func die(spawn_drops : bool):
 		kill_generators()
 		character.stats.enemies_killed += 1
 		character.update_stats_display()
-	$Move.stop_all()
 	
 	# Prevents method from being called multiple times when getting hit
 	# by multiple projectiles in the same frame
