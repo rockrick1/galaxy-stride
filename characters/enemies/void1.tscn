@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/void_sprite_frames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://characters/explosion_generator.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Shader" id=1]
 resource_local_to_scene = true
@@ -95,6 +96,11 @@ process_material = SubResource( 5 )
 [node name="Generators" type="Node2D" parent="."]
 
 [node name="Move" type="Tween" parent="."]
+
+[node name="ExplosionGenerator" parent="." instance=ExtResource( 3 )]
+num_explosions = 1
+explosion_interval = 0.0
+last_explosion_centered = true
 
 [node name="ExitTimer" type="Timer" parent="."]
 wait_time = 20.0

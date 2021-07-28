@@ -220,8 +220,16 @@ func set_turning(side : int):
 			$Sprite.set_flip_h(true)
 
 
-func take_damage(dmg):
-	die()
+func take_damage(_dmg):
+	$ExplosionGenerator.start()
+	# Disables most of the player's current actions, like shooting and strafing
+	control = false
+	invincible = true
+	$ShotEffect/AnimationPlayer.stop()
+	$ShotEffect.hide()
+	strafing = false
+	$Hitbox/AnimationPlayer.play("HideHitbox")
+	$Hitbox.disabled = true
 
 
 func die():
@@ -236,18 +244,10 @@ func die():
 		$ShotEffect/AnimationPlayer.stop()
 		$ShotEffect.hide()
 		return
-	control = false
-	invincible = true
 	$AnimationPlayer.play("death")
 	$Sprite/Invincible.play("Invincible")
 	$Invincibility.start()
 	SfxPlayer.play("CharDeath")
-	
-	$ShotEffect/AnimationPlayer.stop()
-	$ShotEffect.hide()
-	strafing = false
-	$Hitbox/AnimationPlayer.play("HideHitbox")
-	$Hitbox.disabled = true
 	
 	shot_lv = 1
 	POWER = 0
@@ -324,6 +324,12 @@ func _on_Invincibility_timeout():
 	$Sprite/Invincible.stop()
 	$Sprite.get_material().set_shader_param("intensity", 0.0)
 #	$Sprite.self_modulate = Color(1,1,1,1)
+
+
+func _on_ExplosionGenerator_finished():
+	print("cabaram as explosoes do char!!")
+	die()
+	pass
 
 
 func _play_death_sound():

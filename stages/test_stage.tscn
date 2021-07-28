@@ -69,7 +69,7 @@ visible = false
 use_parent_material = true
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
-LIVES = 1
+LIVES = 2
 CAN_DIE = true
 
 [node name="StageBorder" type="StaticBody2D" parent="."]

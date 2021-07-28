@@ -16,7 +16,6 @@ export (Array) var generator_scripts
 
 const base_generator = preload("res://characters/bullet_generator.tscn")
 const drop_spawner = preload("res://drops/drop_spawner.tscn")
-const explosion_scene = preload("res://characters/explosion.tscn")
 const enemy = true
 
 var character
@@ -133,24 +132,20 @@ func die(spawn_drops : bool):
 	# Only spawns drops if killed by the player
 	if not is_dead and spawn_drops:
 		is_dead = true
-		spawn_explosion()
+		$ExplosionGenerator.start()
 		spawn_drops()
 		SfxPlayer.play("EnemyDeath")
 	queue_free()
 
 
-func spawn_explosion(offset = Vector2(0, 0), scale = Vector2(1, 1), play_sound = false):
-	var ex = explosion_scene.instance()
-	ex.global_position = self.global_position + offset
-	ex.scale = scale
-	stage.add_child_below_node(self, ex)
-	if play_sound:
-		SfxPlayer.play("EnemyDeath")
-
-
 func kill_generators():
 	for generator in $Generators.get_children():
 		generator.die()
+
+
+func _on_ExplosionGenerator_finished():
+	print("cabaram as explosoes!!")
+	pass
 
 
 func _on_Move_tween_all_completed():
