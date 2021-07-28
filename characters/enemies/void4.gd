@@ -46,10 +46,6 @@ func pre_death():
 	SfxPlayer.play_music_anim("MusicBoss", "fade_out")
 	.pre_death()
 
-func die(spawn_drops : bool):
-	print("BOSS MORREEEEEEEEEEEEEEEU")
-	.die(spawn_drops)
-
 
 func _on_MoveTimer_timeout():
 	move()
