@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/tutorial/page2.png" type="Texture" id=1]
-[ext_resource path="res://assets/tutorial/page3.png" type="Texture" id=2]
-[ext_resource path="res://assets/tutorial/page1.png" type="Texture" id=3]
-[ext_resource path="res://assets/tutorial/page5.png" type="Texture" id=4]
-[ext_resource path="res://assets/tutorial/page4.png" type="Texture" id=5]
+[ext_resource path="res://assets/tutorial/page2new.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/page1new.png" type="Texture" id=2]
+[ext_resource path="res://assets/tutorial/page4new.png" type="Texture" id=3]
+[ext_resource path="res://assets/tutorial/page5new.png" type="Texture" id=4]
+[ext_resource path="res://assets/tutorial/page3new.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/alterebro-pixel-font.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://menus/tutorial.gd" type="Script" id=7]
 
@@ -12,25 +12,25 @@
 size = 30
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 15
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "3",
+"name": "4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "4",
+"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -38,13 +38,21 @@ animations = [ {
 "name": "5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "1",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 100
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 18
 font_data = ExtResource( 6 )
 
@@ -63,6 +71,7 @@ margin_right = 490.0
 margin_bottom = 281.0
 color = Color( 0.109804, 0.109804, 0.109804, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -82,7 +91,7 @@ margin_left = 185.0
 margin_top = 222.0
 margin_right = 281.0
 margin_bottom = 260.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "1/5"
 align = 1
 valign = 1
@@ -93,15 +102,174 @@ __meta__ = {
 [node name="Pages" type="AnimatedSprite" parent="ColorRect"]
 position = Vector2( 233, 134 )
 scale = Vector2( 0.26087, 0.26087 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "5"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Labels1" type="Node2D" parent="ColorRect/Pages"]
+
+[node name="Label" type="Label" parent="ColorRect/Pages/Labels1"]
+margin_left = -719.433
+margin_top = 176.811
+margin_right = -423.433
+margin_bottom = 281.811
+custom_fonts/font = SubResource( 4 )
+text = "This is your ship!
+You can control it with the
+ARROW KEYS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ColorRect/Pages/Labels1"]
+margin_left = -151.568
+margin_top = 197.141
+margin_right = 162.432
+margin_bottom = 302.141
+custom_fonts/font = SubResource( 4 )
+text = "You can fire projectiles with
+Z"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ColorRect/Pages/Labels1"]
+margin_left = 331.401
+margin_top = 189.896
+margin_right = 645.401
+margin_bottom = 294.896
+custom_fonts/font = SubResource( 4 )
+text = "These are enemies, one hit of
+their bullets and you`re toast!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels2" type="Node2D" parent="ColorRect/Pages"]
+visible = false
+
+[node name="Label4" type="Label" parent="ColorRect/Pages/Labels2"]
+margin_left = -719.433
+margin_top = 176.812
+margin_right = -423.433
+margin_bottom = 281.812
+custom_fonts/font = SubResource( 4 )
+text = "When killed, enemies spawn
+DROPS
+which power up your shot,
+bombs and lives"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="ColorRect/Pages/Labels2"]
+margin_left = -247.933
+margin_top = 163.395
+margin_right = 244.067
+margin_bottom = 304.395
+custom_fonts/font = SubResource( 4 )
+text = "Upon entering the
+AUTO COLLECT ZONE
+all drops will automatically fly towards you!
+But beware, most enemies lie within this zone"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="ColorRect/Pages/Labels2"]
+margin_left = 284.899
+margin_top = 163.395
+margin_right = 776.899
+margin_bottom = 304.395
+custom_fonts/font = SubResource( 4 )
+text = "You can use your bomb with
+X
+Bombs deal some damage to enemies and
+remove all enemy bullets on screen"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels3" type="Node2D" parent="ColorRect/Pages"]
+visible = false
+
+[node name="Label7" type="Label" parent="ColorRect/Pages/Labels3"]
+margin_left = -376.35
+margin_top = 213.228
+margin_right = 382.65
+margin_bottom = 354.228
+custom_fonts/font = SubResource( 4 )
+text = "When leveled up, you shot gains a power boost and more projectiles
+You don't need to worry about ammo too!
+Once you die, you return to the first shot power level, so be careful!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels4" type="Node2D" parent="ColorRect/Pages"]
+visible = false
+
+[node name="Label8" type="Label" parent="ColorRect/Pages/Labels4"]
+margin_left = -776.507
+margin_top = 200.32
+margin_right = -17.5067
+margin_bottom = 341.32
+custom_fonts/font = SubResource( 4 )
+text = "Difficulty of enemies gets harder the more
+time you go without getting hit.
+Beware of powerful enemies!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="ColorRect/Pages/Labels4"]
+margin_left = -33.3026
+margin_top = 170.201
+margin_right = 725.697
+margin_bottom = 311.201
+custom_fonts/font = SubResource( 4 )
+text = "To help you avoid enemy bullets, hold
+SHIFT
+to Strafe. Strafing also displays an orange circle
+in the middle, which is your hitbox"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels5" type="Node2D" parent="ColorRect/Pages"]
+visible = false
+
+[node name="Label10" type="Label" parent="ColorRect/Pages/Labels5"]
+margin_left = -480.188
+margin_top = -85.2751
+margin_right = 473.812
+margin_bottom = 81.7249
+custom_fonts/font = SubResource( 5 )
+text = "That's it for the tutorial, good luck
+traversing the galaxy and have fun!!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Next" type="Button" parent="ColorRect"]
 margin_left = 257.0
 margin_top = 230.0
 margin_right = 273.0
 margin_bottom = 252.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = ">"
 
 [node name="Prev" type="Button" parent="ColorRect"]
@@ -109,7 +277,7 @@ margin_left = 193.0
 margin_top = 230.0
 margin_right = 209.0
 margin_bottom = 252.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "<"
 
 [node name="Close" type="Button" parent="ColorRect"]
@@ -117,11 +285,12 @@ margin_left = 425.0
 margin_top = 6.0
 margin_right = 461.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "CLOSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="ColorRect/Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="ColorRect/Prev" to="." method="_on_Prev_pressed"]
 [connection signal="pressed" from="ColorRect/Close" to="." method="_on_Close_pressed"]
