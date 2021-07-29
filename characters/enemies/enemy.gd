@@ -1,11 +1,7 @@
 extends RigidBody2D
 
-export (float) var RUN_SPEED
 export (float) var HP
-export (float) var HIT_REWARD
 export (int) var NUM_DROPS
-export (String) var TYPE
-export (float) var DISTANCE
 export (float) var BOMB_DMG = 20
 
 export (float) var amount_to_move
@@ -20,9 +16,6 @@ const enemy = true
 
 var character
 var stage
-var dir
-var proj_dir
-var muzzlepos
 var pos_h_override
 var spawned_drops = 0
 var exit_time = -1
@@ -123,6 +116,7 @@ func on_bomb():
 func pre_death():
 	is_dead = true
 	kill_generators()
+	$ExitTimer.stop()
 	$Move.stop_all()
 	$Hitbox.queue_free()
 	if $ExplosionGenerator:

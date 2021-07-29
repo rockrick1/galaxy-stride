@@ -230,6 +230,7 @@ func pre_death():
 	# Disables most of the player's current actions, like shooting and strafing
 	control = false
 	invincible = true
+	set_turning(0)
 	$ShotEffect/AnimationPlayer.stop()
 	$ShotEffect.hide()
 	strafing = false

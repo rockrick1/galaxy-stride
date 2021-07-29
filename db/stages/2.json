@@ -7,7 +7,7 @@
             "enemies" :
             [
                 {
-                    "name" : "void3",
+                    "name" : "void1",
                     "generators" : [
                         {"delay" : 0, "s" : "focused2", "pt" : "proj_circ3small"}, 
                     ],
