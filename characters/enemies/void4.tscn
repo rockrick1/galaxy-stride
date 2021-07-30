@@ -44,9 +44,9 @@ collision_layer = 4
 collision_mask = 3
 mode = 1
 script = ExtResource( 1 )
-HP = 3750.0
+HP = 100.0
 NUM_DROPS = 30
-TYPE = "Melee"
+DROPS_AUTO_FOLLOW = true
 amount_to_move = 75.0
 where_to_move = 65.0
 move_period = 2.0
@@ -58,6 +58,7 @@ modulate = Color( 1, 84.89, 1, 1 )
 material = ExtResource( 3 )
 frames = ExtResource( 2 )
 animation = "void4"
+frame = 1
 playing = true
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

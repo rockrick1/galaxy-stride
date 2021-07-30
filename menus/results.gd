@@ -18,6 +18,8 @@ var messages_dict : Dictionary
 
 var typing_speed = .05
 var read_time = .35
+var stage : Node
+var game_over : bool = false
 
 var current_message = 0
 var display = ""
@@ -42,6 +44,14 @@ func _ready():
 	messages_dict[messages[3]] = diff_label
 	margin_right = 512
 	margin_bottom = 300
+	$VBoxContainer/Rerun.visible = not game_over
+
+	if stage:
+		set_deaths(stage.deaths)
+		set_diff(stage.overall_difficulty)
+		# waves cleared = current wave - 1
+		set_waves(stage.waves_cleared - 1)
+
 	start_dialogue()
 
 
@@ -53,10 +63,6 @@ func set_deaths(d : int):
 
 func set_diff(d : int):
 	diff = d
-
-
-func _on_Button_pressed():
-	get_tree().change_scene("res://menus/main_menu.tscn")
 
 func start_dialogue():
 	current_message = 0
@@ -107,3 +113,12 @@ func _on_LineTimer_timeout():
 
 func _on_ValueTimer_timeout():
 	$CharTimer.start()
+
+func _on_Button_pressed():
+	SfxPlayer.stop_music()
+	get_tree().change_scene("res://menus/main_menu.tscn")
+
+func _on_Rerun_pressed():
+	if stage:
+		stage.rerun()
+	queue_free()

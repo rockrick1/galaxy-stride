@@ -2,6 +2,7 @@ extends RigidBody2D
 
 export (float) var HP
 export (int) var NUM_DROPS
+export (bool) var DROPS_AUTO_FOLLOW = false
 export (float) var BOMB_DMG = 20
 
 export (float) var amount_to_move
@@ -97,6 +98,7 @@ func spawn_drops():
 	spawner_instance.num_drops = NUM_DROPS
 	spawner_instance.stage = stage
 	spawner_instance.spawned_drops = 0
+	spawner_instance.auto_follow = DROPS_AUTO_FOLLOW
 	spawner_instance.global_position = get_global_position()
 	stage.add_child(spawner_instance)
 

@@ -19,6 +19,7 @@ var deaths = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	stats = $CanvasLayer/Stats
+	stats.update_bars($Character)
 	MainNodes.set_stage(self)
 	MainNodes.set_character($Character)
 
@@ -64,6 +65,17 @@ func update_diff(no_hit_time, grazed_bullets):
 	for enemy in $Enemies.get_children():
 		for generator in enemy.get_node("Generators").get_children():
 			generator.update_diff(overall_difficulty)
+
+
+func victory():
+	$Character.control = false
+	$Character.invincible = true
+	$Character.set_turning(0)
+	$Character.victory_move_out()
+
+
+func rerun():
+	$Character/AnimationPlayer.play("new_run")
 
 
 func game_over():

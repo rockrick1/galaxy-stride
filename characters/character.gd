@@ -70,7 +70,7 @@ func _ready():
 	
 	# Sets character ship sprite/animation
 	var anim = MainNodes.get_ship()
-	if anim != null:
+	if anim:
 		$Sprite.play(anim)
 	
 	$FireRate.wait_time = FIRE_RATE
@@ -220,6 +220,21 @@ func set_turning(side : int):
 			$Sprite.set_flip_h(true)
 
 
+func victory_move_out():
+	var t = $VictoryMove
+	t.interpolate_property(self, "position:y",
+	position.y, -100, 3.0,
+	Tween.TRANS_QUAD, Tween.EASE_IN)
+	t.start()
+
+
+func new_run():
+	control = true
+	invincible = false
+	SfxPlayer.play_music("MusicStage")
+	stage.get_node("StartTimer").start()
+
+
 func take_damage(_dmg):
 	pre_death()
 
@@ -230,12 +245,12 @@ func pre_death():
 	# Disables most of the player's current actions, like shooting and strafing
 	control = false
 	invincible = true
-	set_turning(0)
+	strafing = false
 	$ShotEffect/AnimationPlayer.stop()
 	$ShotEffect.hide()
-	strafing = false
 	$Hitbox/AnimationPlayer.play("HideHitbox")
 	$Hitbox.disabled = true
+	set_turning(0)
 
 
 # Things to be done after all death animations have ended
@@ -343,10 +358,12 @@ func _play_death_sound():
 	SfxPlayer.play("CharDeath")
 
 
-func _show_results_screen():
+func _show_results_screen(game_over : bool):
 	var results = results_screen_scene.instance()
+	results.game_over = game_over
+	results.stage = stage
 	stage.add_child_below_node(stage.get_node("Background"), results)
-	results.set_deaths(stage.deaths)
-	results.set_diff(stage.overall_difficulty)
-	# current wave - 1 = waves cleared
-	results.set_waves(stage.waves_cleared - 1)
+
+
+func _on_VictoryMove_tween_completed(object, key):
+	_show_results_screen(false)

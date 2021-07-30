@@ -80,8 +80,15 @@ func parse_vars(params):
 
 func start_next_wave():
 	spawn_complete = false
-	if (repeat and cur_wave_n == len(waves) - 1):
+	if repeat and cur_wave_n == len(waves) - 1:
 		cur_wave_n = 0
+	elif cur_wave_n == len(waves) - 1:
+		$EnemySpawnTimer.stop()
+		$WaveTimer.stop()
+		cur_wave_n = -1
+		cur_enemy_n = -1
+		stage.victory()
+		return
 	else:
 		cur_wave_n += 1
 	

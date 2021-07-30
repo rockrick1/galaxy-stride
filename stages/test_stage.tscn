@@ -69,7 +69,7 @@ visible = false
 use_parent_material = true
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
-LIVES = 2
+LIVES = 4
 POWER_MAX = 1
 CAN_DIE = true
 
@@ -142,6 +142,8 @@ stagename = "2"
 [node name="Enemies" type="Node2D" parent="."]
 use_parent_material = true
 position = Vector2( 256, -15 )
+
+[node name="Drops" type="Node2D" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
