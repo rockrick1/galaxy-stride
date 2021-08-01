@@ -193,7 +193,6 @@ func _on_BulletSpeedUp_pressed():
 	$Buttons/BulletSpeed/Number.set_text(str(generator.bullet_speed))
 
 
-
 func _on_BulletLifeDown_pressed():
 	generator.bullet_life -= .5
 	$Buttons/BulletLife/Number.set_text(str(generator.bullet_life))
