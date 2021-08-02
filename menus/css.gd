@@ -24,7 +24,7 @@ func _on_Ship2_pressed():
 
 func _on_Ship1_mouse_entered():
 	$HBoxContainer/VBoxContainer/Ship1/Frame/AnimationPlayer.stop()
-	$HBoxContainer/VBoxContainer/Ship1/Frame/AnimationPlayer.play("pulse", 0)
+	$HBoxContainer/VBoxContainer/Ship1/Frame/AnimationPlayer.play("pulse")
 	$HBoxContainer/VBoxContainer/Ship1/Frame.visible = true
 
 
