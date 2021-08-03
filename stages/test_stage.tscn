@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://characters/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/misc/stars.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://shaders/CA.tres" type="Material" id=7]
 [ext_resource path="res://shaders/glow_env.tres" type="Environment" id=8]
 [ext_resource path="res://scripts/sfx_player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://menus/pause_screen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 7.99999 )
@@ -144,6 +145,10 @@ use_parent_material = true
 position = Vector2( 256, -15 )
 
 [node name="Drops" type="Node2D" parent="."]
+
+[node name="PauseScreen" parent="." instance=ExtResource( 10 )]
+margin_right = 512.0
+margin_bottom = 300.0
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
