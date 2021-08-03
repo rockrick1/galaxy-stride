@@ -1,16 +1,5 @@
 extends Control
 
-# Load resources
-# var play = preload("res://menus/resources/play.png")
-# var settings = preload("res://menus/resources/settings.png")
-# var credits = preload("res://menus/resources/credits.png")
-# var quit = preload("res://menus/resources/quit.png")
-
-# var play_glow = preload("res://menus/resources/play_glow.png")
-# var settings_glow = preload("res://menus/resources/settings_glow.png")
-# var credits_glow = preload("res://menus/resources/credits_glow.png")
-# var quit_glow = preload("res://menus/resources/quit_glow.png")
-
 var hovering = 0 # which button is being hovered
 
 const tutorial_screen = preload("res://menus/tutorial.tscn")
