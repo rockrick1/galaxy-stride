@@ -35,4 +35,6 @@ func _on_Continue_pressed():
 
 
 func _on_Menu_pressed():
+	SfxPlayer.stop_music()
+	unpause()
 	get_tree().change_scene("res://menus/main_menu.tscn")
