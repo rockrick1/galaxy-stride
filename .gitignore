@@ -5,3 +5,5 @@
 *.pck
 
 *.exe
+
+/exports
